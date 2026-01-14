@@ -15,7 +15,7 @@
   --neuin: inset -4px -4px 5px -1px #ffffff80, inset 2px 2px 8px -1px #0000001a;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   max-width: 1600px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   color: var(--tx);
 }
