@@ -391,6 +391,9 @@
   font-weight: 600;
   color: var(--txm);
   margin-bottom: 12px;
+
+    margin-top: -13px;
+    text-align: left;
 }
 
 /* Primary result */

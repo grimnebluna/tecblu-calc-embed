@@ -198,6 +198,7 @@ function createBundleEntry() {
     window.tecSetVehicles = setVehicles;
     window.tecToggleCustomVehicles = toggleCustomVehicles;
     window.tecCalcRaw = calcRaw;
+    window.tecCalcRawVehicles = calcRawVehicles;
     window.tecClampVehicles = clampVehicles;
     window.tecClampConsumption = clampConsumption;
     window.tecSyncKm = syncKm;
@@ -227,11 +228,14 @@ function createBundleEntry() {
     $('tec-compare').classList.toggle('tec-hidden', tab !== 'diesel');
     $('tec-compare-heating').classList.toggle('tec-hidden', tab !== 'heating');
     var h = $('tec-mobile-hint'); if (h) h.classList.toggle('tec-hidden', tab !== 'diesel');
+    var fd = $('tec-fuel-type-diesel'); if (fd) fd.classList.toggle('tec-hidden', tab !== 'diesel');
+    var fh = $('tec-fuel-type-heating'); if (fh) fh.classList.toggle('tec-hidden', tab !== 'heating');
     calculate();
   }
 
   function setVehicles(n) {
     vehicles = n;
+    $('tec-custom-vehicles').value = n;
     $('tec-custom-vehicles').classList.add('tec-hidden');
     $$('.tec-btn-opt').forEach(b => b.classList.toggle('active', b.dataset.val == n));
     calculate();
@@ -243,8 +247,12 @@ function createBundleEntry() {
     $$('.tec-btn-opt').forEach(b => b.classList.toggle('active', b.dataset.val === 'custom'));
   }
 
-  function calcRaw() {
+  function calcRawVehicles() {
     vehicles = parseInt($('tec-custom-vehicles').value) || 1;
+    calculate();
+  }
+
+  function calcRaw() {
     calculate();
   }
 
