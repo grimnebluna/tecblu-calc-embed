@@ -384,6 +384,15 @@
   box-shadow: none;
 }
 
+/* Fuel type label */
+.tec-fuel-type-label {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--txm);
+  margin-bottom: 12px;
+}
+
 /* Primary result */
 .tec-primary-result {
   text-align: center;
@@ -403,6 +412,7 @@
 
 .tec-primary-value {
   font-size: 42px;
+  line-height:1;
   font-weight: 700;
   color: var(--tgd);
 }

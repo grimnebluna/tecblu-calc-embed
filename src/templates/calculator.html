@@ -15,7 +15,7 @@
         <div class="tec-tab-wrap">
           <button class="tec-tab-btn active" data-tab="diesel" onclick="tecSwitchTab('diesel')">
             <span>⛽</span>
-            <span class="tec-tooltip" data-i18n="tabs.fuel" data-i18n-tooltip="tabs.fuelTooltip">Treibstoff<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+            <span data-i18n="tabs.fuel">Treibstoff</span>
           </button>
           <div class="tec-mobile-hint" id="tec-mobile-hint" data-i18n="mobileHint">Treibstoff: Diesel, Benzin, Biodiesel oder HVO</div>
         </div>
@@ -53,7 +53,7 @@
         <div class="tec-field">
           <label class="tec-label">
             <span>⛽</span>
-            <span class="tec-tooltip" data-i18n="diesel.priceLabel" data-i18n-tooltip="diesel.priceTooltip">Treibstoffpreis<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+            <span data-i18n="diesel.priceLabel">Treibstoffpreis</span>
             <span data-i18n="diesel.pricePerLiter">pro Liter</span>
           </label>
           <div class="tec-price-wrap">
@@ -165,6 +165,8 @@
     <!-- Results Panel -->
     <div>
       <div class="tec-results-card">
+        <div class="tec-fuel-type-label" id="tec-fuel-type-diesel" data-i18n="tabs.fuelTooltip">Diesel, Benzin, Biodiesel oder HVO</div>
+        <div class="tec-fuel-type-label tec-hidden" id="tec-fuel-type-heating" data-i18n="tabs.heating">Heizöl</div>
         <div class="tec-primary-result">
           <div class="tec-primary-label" data-i18n="results.primaryLabel">Jährliche Nettoersparnis</div>
           <div class="tec-primary-value" id="tec-primary-result">CHF 0.–</div>
@@ -175,7 +177,7 @@
           <div class="tec-result-item">
             <div class="tec-result-label">
               <span>💧</span>
-              <span class="tec-tooltip" data-i18n="results.fuelSaved" data-i18n-tooltip="results.fuelSavedTooltip">Treibstoff gespart<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+              <span data-i18n="results.fuelSaved">Treibstoff gespart</span>
             </div>
             <div class="tec-result-value" id="tec-r-diesel">0 L</div>
           </div>
@@ -258,8 +260,7 @@
         <!-- CTA -->
         <div class="tec-cta">
           <p class="tec-cta-text">
-            <span data-i18n="cta.textBefore">Mit der Ersparnis von </span><span class="tec-cta-savings" id="tec-cta-val">CHF 0.–</span><span data-i18n="cta.textAfter"> pro Jahr</span><br>
-            <span data-i18n="cta.textLine2">amortisiert sich TecBlu schnell.</span>
+            <span data-i18n="cta.textBefore">Jetzt </span><span class="tec-cta-savings" id="tec-cta-val">CHF 0.–</span><span data-i18n="cta.textAfter"> pro Jahr sparen und gleichzeitig die Umwelt schonen.</span>
           </p>
           <a href="/offerte-einholen" class="tec-cta-btn" id="tec-cta-link">
             <span data-i18n="cta.button">Kostenlose Offerte anfragen</span>

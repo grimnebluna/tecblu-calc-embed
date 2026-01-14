@@ -94,6 +94,11 @@ function switchTab(tab) {
   const hint = $('tec-mobile-hint');
   if (hint) hint.classList.toggle('tec-hidden', tab !== 'diesel');
 
+  const fuelTypeLabel = $('tec-fuel-type-diesel');
+  const heatingTypeLabel = $('tec-fuel-type-heating');
+  if (fuelTypeLabel) fuelTypeLabel.classList.toggle('tec-hidden', tab !== 'diesel');
+  if (heatingTypeLabel) heatingTypeLabel.classList.toggle('tec-hidden', tab !== 'heating');
+
   calculate();
 }
 
