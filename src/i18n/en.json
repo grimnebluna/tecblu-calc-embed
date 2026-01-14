@@ -1,70 +1,71 @@
 {
   "header": {
-    "title": "[EN] Savings Calculator",
-    "subtitle": "[EN] Calculate how much you can save with TecBlu"
+    "title": "Savings Calculator",
+    "subtitle": "Discover how much you can save with TecBlu"
   },
   "tabs": {
-    "fuel": "[EN] Fuel",
-    "fuelTooltip": "[EN] Diesel, Petrol, Biodiesel or HVO",
-    "heating": "[EN] Heating Oil"
+    "fuel": "Fuel",
+    "fuelTooltip": "Diesel, Petrol, Biodiesel or HVO",
+    "heating": "Heating Oil"
   },
-  "mobileHint": "[EN] Fuel: Diesel, Petrol, Biodiesel or HVO",
+  "mobileHint": "Fuel: Diesel, Petrol, Biodiesel or HVO",
   "diesel": {
-    "vehiclesLabel": "[EN] Number of Vehicles",
-    "vehiclesOther": "[EN] Other",
-    "kmLabel": "[EN] Avg. km per Vehicle / Year",
+    "vehiclesLabel": "Number of Vehicles",
+    "vehiclesOther": "Other",
+    "kmLabel": "Avg. km per Vehicle / Year",
     "kmUnit": "km",
-    "priceLabel": "[EN] Fuel Price",
-    "priceTooltip": "[EN] Diesel, Petrol, Biodiesel or HVO",
-    "pricePerLiter": "[EN] per Liter",
-    "priceHint": "[EN] Average as of January 2026",
-    "consumptionLabel": "[EN] Average Consumption",
+    "priceLabel": "Fuel Price",
+    "priceTooltip": "Diesel, Petrol, Biodiesel or HVO",
+    "pricePerLiter": "per Liter",
+    "priceHint": "Average as of January 2026",
+    "consumptionLabel": "Average Consumption",
     "consumptionOptions": {
-      "truck": "[EN] Truck (32 L/100km)",
-      "van": "[EN] Delivery Van (12 L/100km)",
-      "transporter": "[EN] Transporter (9 L/100km)",
-      "car": "[EN] Car (7 L/100km)",
-      "custom": "[EN] Other"
+      "truck": "Truck (32 L/100km)",
+      "van": "Delivery Van (12 L/100km)",
+      "transporter": "Transporter (9 L/100km)",
+      "car": "Car (7 L/100km)",
+      "custom": "Other"
     },
     "consumptionUnit": "L/100km",
-    "advancedToggle": "[EN] + Advanced Settings",
-    "advancedToggleClose": "[EN] − Show Less",
-    "savingsLabel": "[EN] Expected Fuel Savings",
-    "tecbluCost": "[EN] TecBlu®: CHF 0.0463 per Liter"
+    "advancedToggle": "+ Advanced Settings",
+    "advancedToggleClose": "− Show Less",
+    "savingsLabel": "Expected Fuel Savings",
+    "tecbluCost": "TecBlu®: CHF 0.0463 per Liter"
   },
   "heating": {
-    "buildingLabel": "[EN] Building Type",
+    "buildingLabel": "Building Type",
     "buildingTypes": {
-      "single": "[EN] Single-family House",
-      "multi": "[EN] Multi-family House",
-      "commercial": "[EN] Commercial"
+      "single": "Single-family House",
+      "multi": "Multi-family House",
+      "commercial": "Commercial"
     },
-    "consumptionLabel": "[EN] Annual Heating Oil Consumption",
+    "consumptionLabel": "Annual Heating Oil Consumption",
     "consumptionUnit": "L",
-    "priceLabel": "[EN] Heating Oil Price per Liter",
-    "priceHint": "[EN] Average as of January 2026",
-    "advancedToggle": "[EN] + Advanced Settings",
-    "advancedToggleClose": "[EN] − Show Less",
-    "savingsLabel": "[EN] Expected Heating Oil Savings"
+    "priceLabel": "Heating Oil Price per Liter",
+    "priceHint": "Average as of January 2026",
+    "advancedToggle": "+ Advanced Settings",
+    "advancedToggleClose": "− Show Less",
+    "savingsLabel": "Expected Heating Oil Savings"
   },
   "results": {
-    "primaryLabel": "[EN] Annual Net Savings",
-    "fuelSaved": "[EN] Fuel Saved",
-    "fuelSavedTooltip": "[EN] Diesel, Petrol, Biodiesel or HVO",
-    "oilSaved": "[EN] Heating Oil Saved",
-    "co2Reduced": "[EN] CO₂ Reduced",
-    "perVehicle": "[EN] Per Vehicle",
-    "investment": "[EN] TecBlu Investment",
-    "fuelCompareTitle": "[EN] Annual Fuel Costs Comparison",
-    "heatingCompareTitle": "[EN] Annual Heating Oil Costs Comparison",
-    "withoutTecblu": "[EN] Without TecBlu",
-    "withTecblu": "[EN] With TecBlu"
+    "primaryLabel": "Annual Net Savings",
+    "fuelSaved": "Fuel Saved",
+    "fuelSavedTooltip": "Diesel, Petrol, Biodiesel or HVO",
+    "oilSaved": "Heating Oil Saved",
+    "co2Reduced": "CO₂ Reduced",
+    "perVehicle": "Per Vehicle",
+    "investment": "TecBlu Investment",
+    "fuelCompareTitle": "Annual Fuel Costs Comparison",
+    "heatingCompareTitle": "Annual Heating Oil Costs Comparison",
+    "withoutTecblu": "Without TecBlu",
+    "withTecblu": "With TecBlu"
   },
   "cta": {
-    "text": "[EN] With savings of {savings} per year",
-    "textLine2": "[EN] TecBlu pays for itself quickly.",
-    "button": "[EN] Request Free Quote",
-    "phone": "[EN] Questions?",
+    "textBefore": "With savings of ",
+    "textAfter": " per year",
+    "textLine2": "TecBlu pays for itself quickly.",
+    "button": "Get a Free Quote Today",
+    "phone": "Questions?",
     "phoneNumber": "+41 43 888 00 12"
   },
   "currency": "CHF",

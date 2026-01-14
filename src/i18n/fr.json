@@ -1,70 +1,71 @@
 {
   "header": {
-    "title": "[FR] Calculateur d'économies",
-    "subtitle": "[FR] Calculez combien vous pouvez économiser avec TecBlu"
+    "title": "Calculateur d'économies",
+    "subtitle": "Calculez combien vous pouvez économiser avec TecBlu"
   },
   "tabs": {
-    "fuel": "[FR] Carburant",
-    "fuelTooltip": "[FR] Diesel, Essence, Biodiesel ou HVO",
-    "heating": "[FR] Mazout"
+    "fuel": "Carburant",
+    "fuelTooltip": "Diesel, Essence, Biodiesel ou HVO",
+    "heating": "Mazout"
   },
-  "mobileHint": "[FR] Carburant: Diesel, Essence, Biodiesel ou HVO",
+  "mobileHint": "Carburant: Diesel, Essence, Biodiesel ou HVO",
   "diesel": {
-    "vehiclesLabel": "[FR] Nombre de véhicules",
-    "vehiclesOther": "[FR] Autre",
-    "kmLabel": "[FR] Km moyen par véhicule / an",
+    "vehiclesLabel": "Nombre de véhicules",
+    "vehiclesOther": "Autre",
+    "kmLabel": "Km moyen par véhicule / an",
     "kmUnit": "km",
-    "priceLabel": "[FR] Prix du carburant",
-    "priceTooltip": "[FR] Diesel, Essence, Biodiesel ou HVO",
-    "pricePerLiter": "[FR] par litre",
-    "priceHint": "[FR] Moyenne en janvier 2026",
-    "consumptionLabel": "[FR] Consommation moyenne",
+    "priceLabel": "Prix du carburant",
+    "priceTooltip": "Diesel, Essence, Biodiesel ou HVO",
+    "pricePerLiter": "par litre",
+    "priceHint": "Moyenne en janvier 2026",
+    "consumptionLabel": "Consommation moyenne",
     "consumptionOptions": {
-      "truck": "[FR] Camion (32 L/100km)",
-      "van": "[FR] Camionnette (12 L/100km)",
-      "transporter": "[FR] Transporteur (9 L/100km)",
-      "car": "[FR] Voiture (7 L/100km)",
-      "custom": "[FR] Autre"
+      "truck": "Camion (32 L/100km)",
+      "van": "Camionnette (12 L/100km)",
+      "transporter": "Transporteur (9 L/100km)",
+      "car": "Voiture (7 L/100km)",
+      "custom": "Autre"
     },
     "consumptionUnit": "L/100km",
-    "advancedToggle": "[FR] + Paramètres avancés",
-    "advancedToggleClose": "[FR] − Moins d'options",
-    "savingsLabel": "[FR] Économie de carburant attendue",
-    "tecbluCost": "[FR] TecBlu®: CHF 0.0463 par litre"
+    "advancedToggle": "+ Paramètres avancés",
+    "advancedToggleClose": "− Moins d'options",
+    "savingsLabel": "Économie de carburant attendue",
+    "tecbluCost": "TecBlu®: CHF 0.0463 par litre"
   },
   "heating": {
-    "buildingLabel": "[FR] Type de bâtiment",
+    "buildingLabel": "Type de bâtiment",
     "buildingTypes": {
-      "single": "[FR] Maison individuelle",
-      "multi": "[FR] Immeuble",
-      "commercial": "[FR] Commercial"
+      "single": "Maison individuelle",
+      "multi": "Immeuble",
+      "commercial": "Commercial"
     },
-    "consumptionLabel": "[FR] Consommation annuelle de mazout",
+    "consumptionLabel": "Consommation annuelle de mazout",
     "consumptionUnit": "L",
-    "priceLabel": "[FR] Prix du mazout par litre",
-    "priceHint": "[FR] Moyenne en janvier 2026",
-    "advancedToggle": "[FR] + Paramètres avancés",
-    "advancedToggleClose": "[FR] − Moins d'options",
-    "savingsLabel": "[FR] Économie de mazout attendue"
+    "priceLabel": "Prix du mazout par litre",
+    "priceHint": "Moyenne en janvier 2026",
+    "advancedToggle": "+ Paramètres avancés",
+    "advancedToggleClose": "− Moins d'options",
+    "savingsLabel": "Économie de mazout attendue"
   },
   "results": {
-    "primaryLabel": "[FR] Économie nette annuelle",
-    "fuelSaved": "[FR] Carburant économisé",
-    "fuelSavedTooltip": "[FR] Diesel, Essence, Biodiesel ou HVO",
-    "oilSaved": "[FR] Mazout économisé",
-    "co2Reduced": "[FR] CO₂ réduit",
-    "perVehicle": "[FR] Par véhicule",
-    "investment": "[FR] Investissement TecBlu",
-    "fuelCompareTitle": "[FR] Comparaison des coûts de carburant annuels",
-    "heatingCompareTitle": "[FR] Comparaison des coûts de mazout annuels",
-    "withoutTecblu": "[FR] Sans TecBlu",
-    "withTecblu": "[FR] Avec TecBlu"
+    "primaryLabel": "Économie nette annuelle",
+    "fuelSaved": "Carburant économisé",
+    "fuelSavedTooltip": "Diesel, Essence, Biodiesel ou HVO",
+    "oilSaved": "Mazout économisé",
+    "co2Reduced": "CO₂ réduit",
+    "perVehicle": "Par véhicule",
+    "investment": "Investissement TecBlu",
+    "fuelCompareTitle": "Comparaison des coûts de carburant annuels",
+    "heatingCompareTitle": "Comparaison des coûts de mazout annuels",
+    "withoutTecblu": "Sans TecBlu",
+    "withTecblu": "Avec TecBlu"
   },
   "cta": {
-    "text": "[FR] Avec une économie de {savings} par an",
-    "textLine2": "[FR] TecBlu est vite rentabilisé.",
-    "button": "[FR] Demander un devis gratuit",
-    "phone": "[FR] Des questions?",
+    "textBefore": "Avec une économie de ",
+    "textAfter": " par an",
+    "textLine2": "TecBlu est vite rentabilisé.",
+    "button": "Obtenez un devis gratuit",
+    "phone": "Des questions?",
     "phoneNumber": "+41 43 888 00 12"
   },
   "currency": "CHF",

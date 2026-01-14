@@ -1,70 +1,71 @@
 {
   "header": {
-    "title": "[IT] Calcolatore di risparmio",
-    "subtitle": "[IT] Calcola quanto puoi risparmiare con TecBlu"
+    "title": "Calcolatore di risparmio",
+    "subtitle": "Calcola quanto puoi risparmiare con TecBlu"
   },
   "tabs": {
-    "fuel": "[IT] Carburante",
-    "fuelTooltip": "[IT] Diesel, Benzina, Biodiesel o HVO",
-    "heating": "[IT] Olio combustibile"
+    "fuel": "Carburante",
+    "fuelTooltip": "Diesel, Benzina, Biodiesel o HVO",
+    "heating": "Gasolio"
   },
-  "mobileHint": "[IT] Carburante: Diesel, Benzina, Biodiesel o HVO",
+  "mobileHint": "Carburante: Diesel, Benzina, Biodiesel o HVO",
   "diesel": {
-    "vehiclesLabel": "[IT] Numero di veicoli",
-    "vehiclesOther": "[IT] Altro",
-    "kmLabel": "[IT] Media km per veicolo / anno",
+    "vehiclesLabel": "Numero di veicoli",
+    "vehiclesOther": "Altro",
+    "kmLabel": "Media km per veicolo / anno",
     "kmUnit": "km",
-    "priceLabel": "[IT] Prezzo carburante",
-    "priceTooltip": "[IT] Diesel, Benzina, Biodiesel o HVO",
-    "pricePerLiter": "[IT] per litro",
-    "priceHint": "[IT] Media a gennaio 2026",
-    "consumptionLabel": "[IT] Consumo medio",
+    "priceLabel": "Prezzo carburante",
+    "priceTooltip": "Diesel, Benzina, Biodiesel o HVO",
+    "pricePerLiter": "per litro",
+    "priceHint": "Media a gennaio 2026",
+    "consumptionLabel": "Consumo medio",
     "consumptionOptions": {
-      "truck": "[IT] Camion (32 L/100km)",
-      "van": "[IT] Furgone (12 L/100km)",
-      "transporter": "[IT] Trasportatore (9 L/100km)",
-      "car": "[IT] Auto (7 L/100km)",
-      "custom": "[IT] Altro"
+      "truck": "Camion (32 L/100km)",
+      "van": "Furgone (12 L/100km)",
+      "transporter": "Trasportatore (9 L/100km)",
+      "car": "Auto (7 L/100km)",
+      "custom": "Altro"
     },
     "consumptionUnit": "L/100km",
-    "advancedToggle": "[IT] + Impostazioni avanzate",
-    "advancedToggleClose": "[IT] − Mostra meno",
-    "savingsLabel": "[IT] Risparmio carburante previsto",
-    "tecbluCost": "[IT] TecBlu®: CHF 0.0463 per litro"
+    "advancedToggle": "+ Impostazioni avanzate",
+    "advancedToggleClose": "− Mostra meno",
+    "savingsLabel": "Risparmio carburante previsto",
+    "tecbluCost": "TecBlu®: CHF 0.0463 per litro"
   },
   "heating": {
-    "buildingLabel": "[IT] Tipo di edificio",
+    "buildingLabel": "Tipo di edificio",
     "buildingTypes": {
-      "single": "[IT] Casa unifamiliare",
-      "multi": "[IT] Condominio",
-      "commercial": "[IT] Commerciale"
+      "single": "Casa unifamiliare",
+      "multi": "Condominio",
+      "commercial": "Commerciale"
     },
-    "consumptionLabel": "[IT] Consumo annuale olio combustibile",
+    "consumptionLabel": "Consumo annuale gasolio",
     "consumptionUnit": "L",
-    "priceLabel": "[IT] Prezzo olio combustibile per litro",
-    "priceHint": "[IT] Media a gennaio 2026",
-    "advancedToggle": "[IT] + Impostazioni avanzate",
-    "advancedToggleClose": "[IT] − Mostra meno",
-    "savingsLabel": "[IT] Risparmio olio combustibile previsto"
+    "priceLabel": "Prezzo gasolio per litro",
+    "priceHint": "Media a gennaio 2026",
+    "advancedToggle": "+ Impostazioni avanzate",
+    "advancedToggleClose": "− Mostra meno",
+    "savingsLabel": "Risparmio gasolio previsto"
   },
   "results": {
-    "primaryLabel": "[IT] Risparmio netto annuale",
-    "fuelSaved": "[IT] Carburante risparmiato",
-    "fuelSavedTooltip": "[IT] Diesel, Benzina, Biodiesel o HVO",
-    "oilSaved": "[IT] Olio combustibile risparmiato",
-    "co2Reduced": "[IT] CO₂ ridotto",
-    "perVehicle": "[IT] Per veicolo",
-    "investment": "[IT] Investimento TecBlu",
-    "fuelCompareTitle": "[IT] Confronto costi carburante annuali",
-    "heatingCompareTitle": "[IT] Confronto costi olio combustibile annuali",
-    "withoutTecblu": "[IT] Senza TecBlu",
-    "withTecblu": "[IT] Con TecBlu"
+    "primaryLabel": "Risparmio netto annuale",
+    "fuelSaved": "Carburante risparmiato",
+    "fuelSavedTooltip": "Diesel, Benzina, Biodiesel o HVO",
+    "oilSaved": "Gasolio risparmiato",
+    "co2Reduced": "CO₂ ridotto",
+    "perVehicle": "Per veicolo",
+    "investment": "Investimento TecBlu",
+    "fuelCompareTitle": "Confronto costi carburante annuali",
+    "heatingCompareTitle": "Confronto costi gasolio annuali",
+    "withoutTecblu": "Senza TecBlu",
+    "withTecblu": "Con TecBlu"
   },
   "cta": {
-    "text": "[IT] Con un risparmio di {savings} all'anno",
-    "textLine2": "[IT] TecBlu si ripaga rapidamente.",
-    "button": "[IT] Richiedi preventivo gratuito",
-    "phone": "[IT] Domande?",
+    "textBefore": "Con un risparmio di ",
+    "textAfter": " all'anno",
+    "textLine2": "TecBlu si ripaga rapidamente.",
+    "button": "Richiedi subito un preventivo gratuito",
+    "phone": "Domande?",
     "phoneNumber": "+41 43 888 00 12"
   },
   "currency": "CHF",

@@ -61,9 +61,10 @@
     "withTecblu": "Mit TecBlu"
   },
   "cta": {
-    "text": "Mit der Ersparnis von {savings} pro Jahr",
+    "textBefore": "Mit der Ersparnis von ",
+    "textAfter": " pro Jahr",
     "textLine2": "amortisiert sich TecBlu schnell.",
-    "button": "Kostenlose Offerte anfragen",
+    "button": "Jetzt gratis Offerte einholen",
     "phone": "Noch Fragen?",
     "phoneNumber": "+41 43 888 00 12"
   },
