@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "lang": "de",
+    "name": "Deutsch"
+  },
+  "header": {
+    "title": "Ersparnis-Rechner",
+    "subtitle": "Entdecken Sie, wie viel Sie mit TecBlu sparen können"
+  },
+  "tabs": {
+    "diesel": "Diesel / Treibstoff",
+    "heating": "Heizöl"
+  },
+  "diesel": {
+    "cardTitle": "Geben Sie Ihre Daten ein",
+    "vehicles": "Anzahl Fahrzeuge",
+    "vehiclesCustom": "Eigene",
+    "kmPerYear": "Durchschnittliche km pro Fahrzeug / Jahr",
+    "kmUnit": "km",
+    "consumption": "Durchschnittsverbrauch",
+    "consumptionUnit": "L/100km",
+    "fuelPrice": "Treibstoffpreis pro Liter",
+    "savings": "Erwartete Einsparung",
+    "savingsTooltip": "Typische Einsparungen liegen zwischen 4% und 8%, abhängig von Fahrzeugtyp und Einsatzbedingungen."
+  },
+  "heating": {
+    "cardTitle": "Geben Sie Ihre Daten ein",
+    "buildingType": "Gebäudetyp",
+    "buildingSingle": "Einfamilienhaus",
+    "buildingMulti": "Mehrfamilienhaus",
+    "buildingCommercial": "Gewerbe",
+    "annualConsumption": "Jahresverbrauch",
+    "annualConsumptionUnit": "Liter",
+    "oilPrice": "Heizölpreis pro Liter",
+    "savings": "Erwartete Einsparung",
+    "savingsTooltip": "Einsparungen bei Heizöl liegen typischerweise zwischen 5% und 10%."
+  },
+  "results": {
+    "title": "Ihre jährliche Ersparnis",
+    "netSavings": "Nettoersparnis",
+    "fuelSaved": "Treibstoff gespart",
+    "oilSaved": "Heizöl gespart",
+    "co2Saved": "CO₂ eingespart",
+    "tecbluCost": "TecBlu Investition",
+    "payback": "Amortisation",
+    "months": "Monate"
+  },
+  "compare": {
+    "title": "Kostenvergleich",
+    "without": "Ohne TecBlu",
+    "with": "Mit TecBlu"
+  },
+  "cta": {
+    "prefix": "Sparen Sie",
+    "suffix": "pro Jahr",
+    "button": "Jetzt gratis Offerte einholen",
+    "questions": "Fragen?",
+    "phone": "+41 43 888 00 12"
+  },
+  "units": {
+    "liters": "L",
+    "tons": "t",
+    "chf": "CHF",
+    "perLiter": "/Liter"
+  },
+  "tooltips": {
+    "close": "Schliessen"
+  }
+}
