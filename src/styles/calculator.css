@@ -310,7 +310,7 @@
 }
 
 .tec-building-btn {
-  padding: 16px 8px;
+  padding: 20px 8px 10px 10px;
   border: none;
   border-radius: 12px;
   background: var(--tgr);
@@ -386,7 +386,7 @@
 /* Primary result */
 .tec-primary-result {
   text-align: center;
-  padding: 28px;
+  padding: 18px 28px 28px 28px;
   background: linear-gradient(135deg, var(--tgl), #d4e7cf);
   border-radius: 14px;
   margin-bottom: 20px;
