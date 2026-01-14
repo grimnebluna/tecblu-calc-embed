@@ -1,0 +1,272 @@
+<div class="tec-calc-wrapper">
+  <div class="tec-header">
+    <h2 data-i18n="header.title">Ersparnis-Rechner</h2>
+    <p data-i18n="header.subtitle">Berechnen Sie, wie viel Sie mit TecBlu sparen können</p>
+  </div>
+
+  <div class="tec-tabs">
+    <button class="tec-tab-btn active" data-tab="diesel" onclick="tecSwitchTab('diesel')">
+      <span>⛽</span>
+      <span class="tec-tooltip" data-i18n="tabs.fuel" data-i18n-tooltip="tabs.fuelTooltip">Treibstoff<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+    </button>
+    <button class="tec-tab-btn" data-tab="heating" onclick="tecSwitchTab('heating')">
+      <span>🔥</span>
+      <span data-i18n="tabs.heating">Heizöl</span>
+    </button>
+  </div>
+
+  <div class="tec-mobile-hint" id="tec-mobile-hint" data-i18n="mobileHint">Treibstoff: Diesel, Benzin, Biodiesel oder HVO</div>
+
+  <div class="tec-grid">
+    <div>
+      <!-- Diesel/Fuel Calculator -->
+      <div class="tec-card" id="tec-diesel-calc">
+        <div class="tec-field">
+          <label class="tec-label"><span>🚛</span> <span data-i18n="diesel.vehiclesLabel">Anzahl Fahrzeuge</span></label>
+          <div class="tec-btn-group">
+            <button class="tec-btn-opt" data-val="1" onclick="tecSetVehicles(1)">1</button>
+            <button class="tec-btn-opt active" data-val="5" onclick="tecSetVehicles(5)">5</button>
+            <button class="tec-btn-opt" data-val="10" onclick="tecSetVehicles(10)">10</button>
+            <button class="tec-btn-opt" data-val="20" onclick="tecSetVehicles(20)">20</button>
+            <button class="tec-btn-opt" data-val="custom" onclick="tecToggleCustomVehicles()" data-i18n="diesel.vehiclesOther">Andere</button>
+            <input type="number" id="tec-custom-vehicles" class="tec-custom-input tec-hidden" value="5" min="1" max="1000" oninput="tecCalcRaw()" onblur="tecClampVehicles()">
+          </div>
+        </div>
+
+        <div class="tec-field">
+          <label class="tec-label"><span>📍</span> <span data-i18n="diesel.kmLabel">Ø km pro Fahrzeug / Jahr</span></label>
+          <div class="tec-slider-wrap">
+            <input type="range" class="tec-slider" id="tec-km-slider" value="80000" min="1000" max="300000" step="1000" oninput="tecSyncKm('slider')">
+            <div class="tec-slider-val">
+              <input type="number" class="tec-slider-input" id="tec-km-input" value="80000" min="1000" max="300000" oninput="tecSyncKmRaw()" onblur="tecClampKm()">
+              <span class="tec-slider-unit" data-i18n="diesel.kmUnit">km</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tec-field">
+          <label class="tec-label">
+            <span>⛽</span>
+            <span class="tec-tooltip" data-i18n="diesel.priceLabel" data-i18n-tooltip="diesel.priceTooltip">Treibstoffpreis<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+            <span data-i18n="diesel.pricePerLiter">pro Liter</span>
+          </label>
+          <div class="tec-price-wrap">
+            <button class="tec-price-btn" onclick="tecAdjustPrice('diesel',-0.05)">−</button>
+            <div class="tec-price-inner">
+              <span class="tec-price-currency" data-i18n="currency">CHF</span>
+              <input type="number" class="tec-price-input" id="tec-diesel-price" value="1.95" step="0.05" min="0.5" max="5" oninput="tecCalc()">
+            </div>
+            <button class="tec-price-btn" onclick="tecAdjustPrice('diesel',0.05)">+</button>
+          </div>
+          <p class="tec-hint" data-i18n="diesel.priceHint">Durchschnitt Stand Januar 2026</p>
+        </div>
+
+        <div class="tec-field">
+          <label class="tec-label"><span>📊</span> <span data-i18n="diesel.consumptionLabel">Durchschnittlicher Verbrauch</span></label>
+          <div class="tec-consumption-wrap">
+            <select class="tec-select" id="tec-consumption" onchange="tecHandleConsumption()">
+              <option value="32" data-i18n="diesel.consumptionOptions.truck">LKW (32 L/100km)</option>
+              <option value="12" data-i18n="diesel.consumptionOptions.van">Lieferwagen (12 L/100km)</option>
+              <option value="9" data-i18n="diesel.consumptionOptions.transporter">Transporter (9 L/100km)</option>
+              <option value="7" data-i18n="diesel.consumptionOptions.car">PKW (7 L/100km)</option>
+              <option value="custom" data-i18n="diesel.consumptionOptions.custom">Andere</option>
+            </select>
+            <div id="tec-custom-consumption-wrap" class="tec-hidden">
+              <div class="tec-slider-val" style="display:inline-flex">
+                <input type="number" class="tec-slider-input" id="tec-custom-consumption" value="32" min="1" max="150" style="width:50px" oninput="tecCalcRaw()" onblur="tecClampConsumption()">
+                <span class="tec-slider-unit" data-i18n="diesel.consumptionUnit">L/100km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="tec-advanced-toggle" onclick="tecToggleAdvanced('diesel')" data-i18n="diesel.advancedToggle" data-i18n-toggle-close="diesel.advancedToggleClose">+ Erweiterte Einstellungen</button>
+        <div class="tec-advanced-panel" id="tec-advanced-diesel">
+          <div class="tec-field" style="margin-bottom:12px">
+            <label class="tec-label"><span>📈</span> <span data-i18n="diesel.savingsLabel">Erwartete Treibstoffeinsparung</span></label>
+            <div class="tec-slider-wrap">
+              <input type="range" class="tec-slider" id="tec-savings-slider" value="7" min="5" max="12" step="1" oninput="tecSyncSavings()">
+              <div class="tec-slider-val" style="min-width:70px">
+                <span id="tec-savings-display">7</span>
+                <span class="tec-slider-unit" data-i18n="units.percent">%</span>
+              </div>
+            </div>
+          </div>
+          <p class="tec-hint" data-i18n="diesel.tecbluCost">TecBlu®: CHF 0.0463 pro Liter</p>
+        </div>
+      </div>
+
+      <!-- Heating Calculator -->
+      <div class="tec-card tec-hidden" id="tec-heating-calc">
+        <div class="tec-field">
+          <label class="tec-label" data-i18n="heating.buildingLabel">Gebäudetyp</label>
+          <div class="tec-building-grid">
+            <button class="tec-building-btn" data-type="single" onclick="tecSetBuilding('single')">
+              <div class="tec-building-icon">🏠</div>
+              <div class="tec-building-label" data-i18n="heating.buildingTypes.single">Einfamilienhaus</div>
+            </button>
+            <button class="tec-building-btn active" data-type="multi" onclick="tecSetBuilding('multi')">
+              <div class="tec-building-icon">🏢</div>
+              <div class="tec-building-label" data-i18n="heating.buildingTypes.multi">Mehrfamilienhaus</div>
+            </button>
+            <button class="tec-building-btn" data-type="commercial" onclick="tecSetBuilding('commercial')">
+              <div class="tec-building-icon">🏭</div>
+              <div class="tec-building-label" data-i18n="heating.buildingTypes.commercial">Gewerbe</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="tec-field">
+          <label class="tec-label"><span>🛢️</span> <span data-i18n="heating.consumptionLabel">Jährlicher Heizölverbrauch</span></label>
+          <div class="tec-slider-wrap">
+            <input type="range" class="tec-slider" id="tec-heating-slider" value="8000" min="500" max="500000" step="500" oninput="tecSyncHeating('slider')">
+            <div class="tec-slider-val">
+              <input type="number" class="tec-slider-input" id="tec-heating-input" value="8000" min="500" max="500000" oninput="tecSyncHeatingRaw()" onblur="tecClampHeating()">
+              <span class="tec-slider-unit" data-i18n="heating.consumptionUnit">L</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tec-field">
+          <label class="tec-label"><span>💰</span> <span data-i18n="heating.priceLabel">Heizölpreis pro Liter</span></label>
+          <div class="tec-price-wrap">
+            <button class="tec-price-btn" onclick="tecAdjustPrice('heating',-0.05)">−</button>
+            <div class="tec-price-inner">
+              <span class="tec-price-currency" data-i18n="currency">CHF</span>
+              <input type="number" class="tec-price-input" id="tec-heating-price" value="1.35" step="0.05" min="0.5" max="5" oninput="tecCalc()">
+            </div>
+            <button class="tec-price-btn" onclick="tecAdjustPrice('heating',0.05)">+</button>
+          </div>
+          <p class="tec-hint" data-i18n="heating.priceHint">Durchschnitt Stand Januar 2026</p>
+        </div>
+
+        <button class="tec-advanced-toggle" onclick="tecToggleAdvanced('heating')" data-i18n="heating.advancedToggle" data-i18n-toggle-close="heating.advancedToggleClose">+ Erweiterte Einstellungen</button>
+        <div class="tec-advanced-panel" id="tec-advanced-heating">
+          <div class="tec-field" style="margin-bottom:0">
+            <label class="tec-label"><span>📈</span> <span data-i18n="heating.savingsLabel">Erwartete Heizöleinsparung</span></label>
+            <div class="tec-slider-wrap">
+              <input type="range" class="tec-slider" id="tec-heating-savings-slider" value="7" min="5" max="12" step="1" oninput="tecSyncHeatingSavings()">
+              <div class="tec-slider-val" style="min-width:70px">
+                <span id="tec-heating-savings-display">7</span>
+                <span class="tec-slider-unit" data-i18n="units.percent">%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div>
+      <div class="tec-results-card">
+        <div class="tec-primary-result">
+          <div class="tec-primary-label" data-i18n="results.primaryLabel">Jährliche Nettoersparnis</div>
+          <div class="tec-primary-value" id="tec-primary-result">CHF 0.–</div>
+        </div>
+
+        <!-- Diesel Results -->
+        <div class="tec-result-grid" id="tec-diesel-results">
+          <div class="tec-result-item">
+            <div class="tec-result-label">
+              <span>💧</span>
+              <span class="tec-tooltip" data-i18n="results.fuelSaved" data-i18n-tooltip="results.fuelSavedTooltip">Treibstoff gespart<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+            </div>
+            <div class="tec-result-value" id="tec-r-diesel">0 L</div>
+          </div>
+          <div class="tec-result-item highlight">
+            <div class="tec-result-label"><span>🌱</span> <span data-i18n="results.co2Reduced">CO₂ reduziert</span></div>
+            <div class="tec-result-value" id="tec-r-co2">0 t</div>
+          </div>
+          <div class="tec-result-item">
+            <div class="tec-result-label"><span>🚛</span> <span data-i18n="results.perVehicle">Pro Fahrzeug</span></div>
+            <div class="tec-result-value" id="tec-r-vehicle">CHF 0.–</div>
+          </div>
+          <div class="tec-result-item">
+            <div class="tec-result-label"><span>📦</span> <span data-i18n="results.investment">TecBlu-Investition</span></div>
+            <div class="tec-result-value" id="tec-r-invest">CHF 0.–</div>
+          </div>
+        </div>
+
+        <!-- Heating Results -->
+        <div class="tec-result-grid tec-hidden" id="tec-heating-results">
+          <div class="tec-result-item">
+            <div class="tec-result-label"><span>💧</span> <span data-i18n="results.oilSaved">Heizöl gespart</span></div>
+            <div class="tec-result-value" id="tec-rh-oil">0 L</div>
+          </div>
+          <div class="tec-result-item highlight">
+            <div class="tec-result-label"><span>🌱</span> <span data-i18n="results.co2Reduced">CO₂ reduziert</span></div>
+            <div class="tec-result-value" id="tec-rh-co2">0 t</div>
+          </div>
+          <div class="tec-result-item" style="grid-column:span 2">
+            <div class="tec-result-label"><span>📦</span> <span data-i18n="results.investment">TecBlu-Investition</span></div>
+            <div class="tec-result-value" id="tec-rh-invest">CHF 0.–</div>
+          </div>
+        </div>
+
+        <!-- Heating Comparison -->
+        <div class="tec-compare tec-hidden" id="tec-compare-heating">
+          <div class="tec-compare-title" data-i18n="results.heatingCompareTitle">Jährliche Heizölkosten im Vergleich</div>
+          <div class="tec-compare-row">
+            <div class="tec-compare-header">
+              <span class="tec-compare-label" data-i18n="results.withoutTecblu">Ohne TecBlu</span>
+              <span class="tec-compare-val-red" id="tec-ch-without">CHF 0.–</span>
+            </div>
+            <div class="tec-compare-track">
+              <div class="tec-compare-bar red" id="tec-bar-h-without" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="tec-compare-row">
+            <div class="tec-compare-header">
+              <span class="tec-compare-label green" data-i18n="results.withTecblu">Mit TecBlu</span>
+              <span class="tec-compare-val-green" id="tec-ch-with">CHF 0.–</span>
+            </div>
+            <div class="tec-compare-track">
+              <div class="tec-compare-bar green" id="tec-bar-h-with" style="width:93%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fuel Comparison -->
+        <div class="tec-compare" id="tec-compare">
+          <div class="tec-compare-title" data-i18n="results.fuelCompareTitle">Jährliche Treibstoffkosten im Vergleich</div>
+          <div class="tec-compare-row">
+            <div class="tec-compare-header">
+              <span class="tec-compare-label" data-i18n="results.withoutTecblu">Ohne TecBlu</span>
+              <span class="tec-compare-val-red" id="tec-c-without">CHF 0.–</span>
+            </div>
+            <div class="tec-compare-track">
+              <div class="tec-compare-bar red" id="tec-bar-without" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="tec-compare-row">
+            <div class="tec-compare-header">
+              <span class="tec-compare-label green" data-i18n="results.withTecblu">Mit TecBlu</span>
+              <span class="tec-compare-val-green" id="tec-c-with">CHF 0.–</span>
+            </div>
+            <div class="tec-compare-track">
+              <div class="tec-compare-bar green" id="tec-bar-with" style="width:93%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="tec-cta">
+          <p class="tec-cta-text">
+            <span data-i18n="cta.text" data-i18n-params="savings">Mit der Ersparnis von <span class="tec-cta-savings" id="tec-cta-val">CHF 0.–</span> pro Jahr</span><br>
+            <span data-i18n="cta.textLine2">amortisiert sich TecBlu schnell.</span>
+          </p>
+          <a href="/offerte-einholen" class="tec-cta-btn" id="tec-cta-link">
+            <span data-i18n="cta.button">Kostenlose Offerte anfragen</span>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <p class="tec-cta-phone">
+            <span data-i18n="cta.phone">Noch Fragen?</span>
+            <a href="tel:+41438880012" data-i18n="cta.phoneNumber">+41 43 888 00 12</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

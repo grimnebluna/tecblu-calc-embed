@@ -1,0 +1,891 @@
+/* TecBlu Calculator Widget Styles */
+
+/* Base wrapper and variables */
+.tec-calc-wrapper {
+  --tg: #80ac75;
+  --tgd: #6a9460;
+  --tgl: #e8f0e6;
+  --tt: #25a2b6;
+  --ttd: #1e8a9c;
+  --ttl: #e0f4f7;
+  --tgr: #ecf0f3;
+  --tx: #2d3748;
+  --txm: #64748b;
+  --neu: -2px -2px 6px 1px #ffffff40, 2px 2px 6px 2px #00000026;
+  --neuin: inset -4px -4px 5px -1px #ffffff80, inset 2px 2px 8px -1px #0000001a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--tx);
+}
+
+.tec-calc-wrapper * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.tec-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.tec-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--tx);
+}
+
+.tec-header p {
+  color: var(--txm);
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Tabs */
+.tec-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.tec-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: var(--tgr);
+  color: var(--txm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: inherit;
+  box-shadow: var(--neu);
+}
+
+.tec-tab-btn:hover {
+  color: var(--tg);
+}
+
+.tec-tab-btn.active {
+  background: var(--tg);
+  color: #fff;
+  box-shadow: var(--neuin);
+}
+
+/* Grid layout */
+.tec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 850px) {
+  .tec-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.tec-card,
+.tec-results-card {
+  background: var(--tgr);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 6px 6px 14px 2px #0000001a, -6px -6px 14px 2px #ffffffbf;
+}
+
+/* Form fields */
+.tec-field {
+  margin-bottom: 24px;
+}
+
+.tec-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--txm);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Button group */
+.tec-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tec-btn-opt {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--tgr);
+  color: var(--tx);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  box-shadow: var(--neu);
+}
+
+.tec-btn-opt:hover {
+  color: var(--tg);
+}
+
+.tec-btn-opt.active {
+  background: var(--tg);
+  color: #fff;
+  box-shadow: var(--neuin);
+}
+
+/* Slider */
+.tec-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tec-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 8px;
+  background: #dde3e8;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: inset 1px 1px 3px #0000001a;
+}
+
+.tec-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  background: var(--tg);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--neu);
+}
+
+.tec-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--tg);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--neu);
+}
+
+.tec-slider-val {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #e8f0e6;
+  padding: 10px 14px;
+  border-radius: 8px;
+  min-width: 130px;
+  box-shadow: var(--neuin);
+}
+
+.tec-slider-input {
+  flex: 1;
+  min-width: 50px;
+  border: none;
+  background: transparent;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--tx);
+  outline: none;
+  font-family: inherit;
+}
+
+.tec-slider-unit {
+  color: var(--txm);
+  font-size: 14px;
+}
+
+/* Price input */
+.tec-price-wrap {
+  display: inline-flex;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: -2px -2px 6px 1px #ffffff95, 2px 2px 8px 2px #00000015;
+  background: #e8f0e6;
+}
+
+.tec-price-btn {
+  width: 40px;
+  height: 44px;
+  border: none;
+  background: #dce7d9;
+  color: var(--tx);
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tec-price-btn:hover {
+  background: #d0dece;
+}
+
+.tec-price-btn:active {
+  background: #c4d5c2;
+}
+
+.tec-price-inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 12px;
+  background: #e8f0e6;
+}
+
+.tec-price-currency {
+  color: var(--txm);
+  font-size: 14px;
+}
+
+.tec-price-input {
+  width: 60px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--tx);
+  outline: none;
+  font-family: inherit;
+}
+
+.tec-hint {
+  font-size: 12px;
+  color: var(--txm);
+  margin-top: 6px;
+}
+
+/* Consumption select */
+.tec-consumption-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tec-select {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 40px 12px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #e8f0e6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='%2364748b' fill='none'%3E%3Cpath stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") no-repeat right 12px center/18px;
+  font-size: 15px;
+  color: var(--tx);
+  cursor: pointer;
+  -webkit-appearance: none;
+  outline: none;
+  font-family: inherit;
+  box-shadow: var(--neuin);
+}
+
+/* Building buttons */
+.tec-building-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.tec-building-btn {
+  padding: 16px 8px;
+  border: none;
+  border-radius: 12px;
+  background: var(--tgr);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--neu);
+}
+
+.tec-building-btn:hover {
+  color: var(--tg);
+}
+
+.tec-building-btn.active {
+  background: var(--tg);
+  box-shadow: var(--neuin);
+}
+
+.tec-building-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.tec-building-label {
+  font-size: 12px;
+  color: var(--txm);
+  font-weight: 500;
+}
+
+.tec-building-btn.active .tec-building-label {
+  color: #fff;
+}
+
+/* Advanced settings */
+.tec-advanced-toggle {
+  background: transparent;
+  border: none;
+  color: var(--tt);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.tec-advanced-toggle:hover {
+  color: var(--ttd);
+}
+
+.tec-advanced-panel {
+  margin-top: 16px;
+  padding: 16px;
+  background: #e4e9ed;
+  border-radius: 10px;
+  display: none;
+  box-shadow: var(--neuin);
+}
+
+.tec-advanced-panel.show {
+  display: block;
+}
+
+.tec-advanced-panel .tec-slider {
+  background: #fff;
+}
+
+.tec-advanced-panel .tec-slider-val {
+  background: #e4e9ed;
+  box-shadow: none;
+}
+
+/* Primary result */
+.tec-primary-result {
+  text-align: center;
+  padding: 28px;
+  background: linear-gradient(135deg, var(--tgl), #d4e7cf);
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: var(--neuin);
+}
+
+.tec-primary-label {
+  font-size: 14px;
+  color: var(--tgd);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.tec-primary-value {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--tgd);
+}
+
+@media (max-width: 500px) {
+  .tec-primary-value {
+    font-size: 32px;
+  }
+}
+
+/* Result grid */
+.tec-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tec-result-item {
+  padding: 14px;
+  background: var(--tgr);
+  border-radius: 10px;
+  box-shadow: var(--neuin);
+}
+
+.tec-result-item.highlight {
+  background: var(--ttl);
+}
+
+.tec-result-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--txm);
+  margin-bottom: 4px;
+}
+
+.tec-result-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--tx);
+}
+
+.tec-result-item.highlight .tec-result-value {
+  color: var(--ttd);
+}
+
+/* Comparison bars */
+.tec-compare {
+  padding: 18px;
+  background: var(--tgr);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: var(--neuin);
+}
+
+.tec-compare-title {
+  font-size: 14px;
+  color: var(--txm);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.tec-compare-row {
+  margin-bottom: 12px;
+}
+
+.tec-compare-row:last-child {
+  margin-bottom: 0;
+}
+
+.tec-compare-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.tec-compare-label {
+  color: var(--txm);
+}
+
+.tec-compare-label.green {
+  color: var(--tg);
+  font-weight: 600;
+}
+
+.tec-compare-val-red {
+  color: #c0392b;
+}
+
+.tec-compare-val-green {
+  color: var(--tg);
+  font-weight: 600;
+}
+
+.tec-compare-track {
+  height: 24px;
+  background: #dde3e8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 1px 1px 3px #0000001a;
+}
+
+.tec-compare-bar {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.5s;
+}
+
+.tec-compare-bar.red {
+  background: linear-gradient(90deg, #e7863c96, #c0392bba);
+}
+
+.tec-compare-bar.green {
+  background: linear-gradient(90deg, var(--tg), var(--tgd));
+}
+
+/* CTA */
+.tec-cta {
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--ttl), #cceef3);
+  border-radius: 14px;
+  box-shadow: var(--neuin);
+}
+
+.tec-cta-text {
+  font-size: 15px;
+  color: var(--tx);
+  margin-bottom: 16px;
+}
+
+.tec-cta-savings {
+  color: var(--tgd);
+  font-weight: 700;
+}
+
+.tec-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--tt);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: var(--neu);
+  font-family: inherit;
+}
+
+.tec-cta-btn:hover {
+  background: var(--ttd);
+  transform: translateY(-2px);
+}
+
+.tec-cta-btn:active {
+  box-shadow: var(--neuin);
+  transform: translateY(0);
+}
+
+.tec-cta-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tec-cta-phone {
+  font-size: 13px;
+  color: var(--txm);
+  margin-top: 14px;
+}
+
+.tec-cta-phone a {
+  color: var(--tt);
+  text-decoration: none;
+}
+
+/* Utility classes */
+.tec-hidden {
+  display: none !important;
+}
+
+.tec-custom-input {
+  width: 80px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--tx);
+  outline: none;
+  font-family: inherit;
+  background: #e8f0e6;
+  box-shadow: var(--neuin);
+}
+
+/* Tooltip */
+.tec-tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed var(--txm);
+}
+
+.tec-tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tx);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tec-tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: var(--tx);
+}
+
+.tec-tooltip:hover .tec-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile hint */
+.tec-mobile-hint {
+  display: none;
+  text-align: center;
+  font-size: 11px;
+  color: var(--txm);
+  margin: -20px 0 20px;
+  padding: 8px 12px;
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .tec-slider-input,
+  .tec-price-input,
+  .tec-select,
+  .tec-custom-input {
+    font-size: 16px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 420px) {
+  .tec-mobile-hint {
+    display: block;
+  }
+
+  .tec-mobile-hint.tec-hidden {
+    display: none;
+  }
+
+  .tec-tooltip {
+    border-bottom: none;
+    cursor: default;
+  }
+
+  .tec-tooltip-text {
+    display: none;
+  }
+
+  .tec-calc-wrapper {
+    padding: 12px;
+  }
+
+  .tec-header h2 {
+    font-size: 24px;
+  }
+
+  .tec-header p {
+    font-size: 14px;
+  }
+
+  .tec-header {
+    margin-bottom: 20px;
+  }
+
+  .tec-tabs {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .tec-tab-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .tec-card,
+  .tec-results-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .tec-field {
+    margin-bottom: 16px;
+  }
+
+  .tec-label {
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+
+  .tec-btn-opt {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .tec-slider-wrap {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tec-slider {
+    width: 100%;
+    flex: none;
+  }
+
+  .tec-slider-val {
+    min-width: 110px;
+    padding: 10px 12px;
+  }
+
+  .tec-price-btn {
+    width: 38px;
+    height: 44px;
+  }
+
+  .tec-price-input {
+    width: 55px;
+  }
+
+  .tec-select {
+    min-width: 100%;
+    padding: 12px 36px 12px 12px;
+  }
+
+  .tec-building-icon {
+    font-size: 24px;
+  }
+
+  .tec-building-label {
+    font-size: 12px;
+  }
+
+  .tec-building-btn {
+    padding: 14px 6px;
+  }
+
+  .tec-primary-result {
+    padding: 20px;
+  }
+
+  .tec-primary-value {
+    font-size: 28px;
+  }
+
+  .tec-result-grid {
+    gap: 8px;
+  }
+
+  .tec-result-item {
+    padding: 10px;
+  }
+
+  .tec-result-label {
+    font-size: 11px;
+  }
+
+  .tec-result-value {
+    font-size: 15px;
+  }
+
+  .tec-compare {
+    padding: 12px;
+  }
+
+  .tec-compare-title {
+    font-size: 13px;
+  }
+
+  .tec-cta-phone {
+    font-size: 12px;
+  }
+
+  .tec-compare-header {
+    font-size: 11px;
+  }
+
+  .tec-compare-track {
+    height: 20px;
+  }
+
+  .tec-cta {
+    padding: 16px;
+  }
+
+  .tec-cta-text {
+    font-size: 13px;
+  }
+
+  .tec-cta-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .tec-custom-input {
+    width: 75px;
+    padding: 10px 12px;
+  }
+
+  .tec-advanced-panel {
+    padding: 12px;
+  }
+}
+
+/* Responsive - Very small screens */
+@media (max-width: 340px) {
+  .tec-header h2 {
+    font-size: 20px;
+  }
+
+  .tec-tabs {
+    flex-direction: column;
+  }
+
+  .tec-tab-btn {
+    justify-content: center;
+  }
+
+  .tec-building-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .tec-building-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  .tec-building-icon {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .tec-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tec-result-item[style*="grid-column"] {
+    grid-column: auto !important;
+  }
+
+  .tec-primary-value {
+    font-size: 24px;
+  }
+
+  .tec-btn-opt {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .tec-select {
+    min-width: 0;
+    width: 100%;
+    padding: 10px 32px 10px 10px;
+    background-position: right 8px center;
+    background-size: 16px;
+  }
+}

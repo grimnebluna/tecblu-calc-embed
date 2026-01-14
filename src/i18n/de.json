@@ -1,0 +1,76 @@
+{
+  "header": {
+    "title": "Ersparnis-Rechner",
+    "subtitle": "Berechnen Sie, wie viel Sie mit TecBlu sparen können"
+  },
+  "tabs": {
+    "fuel": "Treibstoff",
+    "fuelTooltip": "Diesel, Benzin, Biodiesel oder HVO",
+    "heating": "Heizöl"
+  },
+  "mobileHint": "Treibstoff: Diesel, Benzin, Biodiesel oder HVO",
+  "diesel": {
+    "vehiclesLabel": "Anzahl Fahrzeuge",
+    "vehiclesOther": "Andere",
+    "kmLabel": "Ø km pro Fahrzeug / Jahr",
+    "kmUnit": "km",
+    "priceLabel": "Treibstoffpreis",
+    "priceTooltip": "Diesel, Benzin, Biodiesel oder HVO",
+    "pricePerLiter": "pro Liter",
+    "priceHint": "Durchschnitt Stand Januar 2026",
+    "consumptionLabel": "Durchschnittlicher Verbrauch",
+    "consumptionOptions": {
+      "truck": "LKW (32 L/100km)",
+      "van": "Lieferwagen (12 L/100km)",
+      "transporter": "Transporter (9 L/100km)",
+      "car": "PKW (7 L/100km)",
+      "custom": "Andere"
+    },
+    "consumptionUnit": "L/100km",
+    "advancedToggle": "+ Erweiterte Einstellungen",
+    "advancedToggleClose": "− Weniger anzeigen",
+    "savingsLabel": "Erwartete Treibstoffeinsparung",
+    "tecbluCost": "TecBlu®: CHF 0.0463 pro Liter"
+  },
+  "heating": {
+    "buildingLabel": "Gebäudetyp",
+    "buildingTypes": {
+      "single": "Einfamilienhaus",
+      "multi": "Mehrfamilienhaus",
+      "commercial": "Gewerbe"
+    },
+    "consumptionLabel": "Jährlicher Heizölverbrauch",
+    "consumptionUnit": "L",
+    "priceLabel": "Heizölpreis pro Liter",
+    "priceHint": "Durchschnitt Stand Januar 2026",
+    "advancedToggle": "+ Erweiterte Einstellungen",
+    "advancedToggleClose": "− Weniger anzeigen",
+    "savingsLabel": "Erwartete Heizöleinsparung"
+  },
+  "results": {
+    "primaryLabel": "Jährliche Nettoersparnis",
+    "fuelSaved": "Treibstoff gespart",
+    "fuelSavedTooltip": "Diesel, Benzin, Biodiesel oder HVO",
+    "oilSaved": "Heizöl gespart",
+    "co2Reduced": "CO₂ reduziert",
+    "perVehicle": "Pro Fahrzeug",
+    "investment": "TecBlu-Investition",
+    "fuelCompareTitle": "Jährliche Treibstoffkosten im Vergleich",
+    "heatingCompareTitle": "Jährliche Heizölkosten im Vergleich",
+    "withoutTecblu": "Ohne TecBlu",
+    "withTecblu": "Mit TecBlu"
+  },
+  "cta": {
+    "text": "Mit der Ersparnis von {savings} pro Jahr",
+    "textLine2": "amortisiert sich TecBlu schnell.",
+    "button": "Kostenlose Offerte anfragen",
+    "phone": "Noch Fragen?",
+    "phoneNumber": "+41 43 888 00 12"
+  },
+  "currency": "CHF",
+  "units": {
+    "liters": "L",
+    "tons": "t",
+    "percent": "%"
+  }
+}

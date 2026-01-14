@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TecBlu Calculator - Test Page</title>
+  <style>
+    body {
+      background: #ecf0f3;
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .test-header {
+      max-width: 1100px;
+      margin: 0 auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-header h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #2d3748;
+    }
+    .test-header p {
+      margin: 0 0 15px;
+      color: #64748b;
+    }
+    .lang-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lang-btn {
+      padding: 8px 16px;
+      background: #e8f0e6;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #2d3748;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover {
+      background: #80ac75;
+      color: #fff;
+    }
+    .lang-btn.active {
+      background: #80ac75;
+      color: #fff;
+    }
+    .current-lang {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #64748b;
+    }
+    .current-lang code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-header">
+    <h1>TecBlu Calculator - Test Page</h1>
+    <p>Test the embeddable calculator widget with different languages.</p>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="switchLang('de')">German (de)</button>
+      <button class="lang-btn" onclick="switchLang('en')">English (en)</button>
+      <button class="lang-btn" onclick="switchLang('fr')">French (fr)</button>
+      <button class="lang-btn" onclick="switchLang('it')">Italian (it)</button>
+    </div>
+    <p class="current-lang">
+      Current language: <code id="current-lang">detecting...</code>
+      <br>
+      URL: <code id="current-url"></code>
+    </p>
+  </div>
+
+  <!-- Calculator Widget Container -->
+  <div id="tecblu-calculator"></div>
+
+  <!-- Load the built script -->
+  <script src="dist/tecblu-calc.js"></script>
+
+  <script>
+    // Display current URL and detected language
+    document.getElementById('current-url').textContent = window.location.href;
+
+    // Wait for widget to initialize
+    setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get('lang') || 'de (default)';
+      document.getElementById('current-lang').textContent = lang;
+
+      // Highlight active language button
+      const buttons = document.querySelectorAll('.lang-btn');
+      const currentLang = params.get('lang') || 'de';
+      buttons.forEach(btn => {
+        if (btn.textContent.includes(`(${currentLang})`)) {
+          btn.classList.add('active');
+        }
+      });
+    }, 100);
+
+    // Language switcher
+    function switchLang(lang) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      window.location.href = url.toString();
+    }
+  </script>
+</body>
+</html>

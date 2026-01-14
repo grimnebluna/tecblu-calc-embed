@@ -1,0 +1,25 @@
+{
+  "name": "tecblu-calc-embed",
+  "version": "1.0.0",
+  "description": "Embeddable TecBlu savings calculator widget",
+  "main": "dist/tecblu-calc.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimnebluna/tecblu-calc-embed.git"
+  },
+  "keywords": [
+    "tecblu",
+    "calculator",
+    "widget",
+    "embed"
+  ],
+  "author": "TecBlu",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}
