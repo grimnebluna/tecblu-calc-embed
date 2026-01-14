@@ -14,9 +14,9 @@
   --neu: -2px -2px 6px 1px #ffffff40, 2px 2px 6px 2px #00000026;
   --neuin: inset -4px -4px 5px -1px #ffffff80, inset 2px 2px 8px -1px #0000001a;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0;
   color: var(--tx);
 }
 
@@ -677,7 +677,7 @@
   }
 
   .tec-calc-wrapper {
-    padding: 12px;
+    padding: 0;
   }
 
   .tec-header h2 {
