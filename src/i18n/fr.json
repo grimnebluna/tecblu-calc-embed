@@ -22,7 +22,7 @@
     "consumptionOptions": {
       "truck": "Camion (32 L/100km)",
       "van": "Camionnette (12 L/100km)",
-      "transporter": "Transporteur (9 L/100km)",
+      "transporter": "Utilitaire (9 L/100km)",
       "car": "Voiture (7 L/100km)",
       "custom": "Autre"
     },
@@ -36,7 +36,7 @@
     "buildingLabel": "Type de bâtiment",
     "buildingTypes": {
       "single": "Maison individuelle",
-      "multi": "Immeuble",
+      "multi": "Immeuble résidentiel",
       "commercial": "Commercial"
     },
     "consumptionLabel": "Consommation annuelle de mazout",
