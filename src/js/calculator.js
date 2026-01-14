@@ -101,6 +101,7 @@ function switchTab(tab) {
  */
 function setVehicles(n) {
   vehicles = n;
+  $('tec-custom-vehicles').value = n;
   $('tec-custom-vehicles').classList.add('tec-hidden');
   $$('.tec-btn-opt').forEach(b => b.classList.toggle('active', b.dataset.val == n));
   calculate();
