@@ -48,6 +48,7 @@ export function initCalculator(lang = 'de') {
   window.tecSetVehicles = setVehicles;
   window.tecToggleCustomVehicles = toggleCustomVehicles;
   window.tecCalcRaw = calcRaw;
+  window.tecCalcRawVehicles = calcRawVehicles;
   window.tecClampVehicles = clampVehicles;
   window.tecClampConsumption = clampConsumption;
   window.tecSyncKm = syncKm;
@@ -117,10 +118,17 @@ function toggleCustomVehicles() {
 }
 
 /**
- * Calculate without clamping (for live input)
+ * Calculate with custom vehicles (for live input)
+ */
+function calcRawVehicles() {
+  vehicles = parseInt($('tec-custom-vehicles').value) || 1;
+  calculate();
+}
+
+/**
+ * Calculate without updating vehicles (for consumption input)
  */
 function calcRaw() {
-  vehicles = parseInt($('tec-custom-vehicles').value) || 1;
   calculate();
 }
 
