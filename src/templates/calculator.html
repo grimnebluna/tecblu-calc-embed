@@ -8,21 +8,23 @@
   </div>
 
   -->
-  <div class="tec-tabs">
-    <button class="tec-tab-btn active" data-tab="diesel" onclick="tecSwitchTab('diesel')">
-      <span>⛽</span>
-      <span class="tec-tooltip" data-i18n="tabs.fuel" data-i18n-tooltip="tabs.fuelTooltip">Treibstoff<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
-    </button>
-    <button class="tec-tab-btn" data-tab="heating" onclick="tecSwitchTab('heating')">
-      <span>🔥</span>
-      <span data-i18n="tabs.heating">Heizöl</span>
-    </button>
-  </div>
-
-  <div class="tec-mobile-hint" id="tec-mobile-hint" data-i18n="mobileHint">Treibstoff: Diesel, Benzin, Biodiesel oder HVO</div>
 
   <div class="tec-grid">
     <div>
+      <div class="tec-tabs">
+        <div class="tec-tab-wrap">
+          <button class="tec-tab-btn active" data-tab="diesel" onclick="tecSwitchTab('diesel')">
+            <span>⛽</span>
+            <span class="tec-tooltip" data-i18n="tabs.fuel" data-i18n-tooltip="tabs.fuelTooltip">Treibstoff<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
+          </button>
+          <div class="tec-mobile-hint" id="tec-mobile-hint" data-i18n="mobileHint">Treibstoff: Diesel, Benzin, Biodiesel oder HVO</div>
+        </div>
+        <button class="tec-tab-btn" data-tab="heating" onclick="tecSwitchTab('heating')">
+          <span>🔥</span>
+          <span data-i18n="tabs.heating">Heizöl</span>
+        </button>
+      </div>
+
       <!-- Diesel/Fuel Calculator -->
       <div class="tec-card" id="tec-diesel-calc">
         <div class="tec-field">
