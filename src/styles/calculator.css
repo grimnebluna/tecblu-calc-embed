@@ -387,13 +387,12 @@
 /* Fuel type label */
 .tec-fuel-type-label {
   text-align: center;
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 600;
- /* color: var(--txm); */
   color: var(--tgd);
-  margin-bottom: 12px;
+  margin-bottom: 21px;
 
-    margin-top: -13px;
+    margin-top: -10px;
 }
 
 /* Primary result */
