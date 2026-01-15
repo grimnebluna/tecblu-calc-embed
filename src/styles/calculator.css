@@ -44,6 +44,9 @@
   font-size: 16px;
 }
 
+.tec-slightlyleft {
+  margin-left: -3px; 
+}
 /* Tabs */
 .tec-tabs {
   display: grid;
@@ -387,12 +390,12 @@
 /* Fuel type label */
 .tec-fuel-type-label {
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--tgd);
   margin-bottom: 21px;
 
-    margin-top: -10px;
+    margin-top: -6px;
 }
 
 /* Primary result */
@@ -675,12 +678,21 @@
   .tec-custom-input {
     font-size: 16px;
   }
+  
+.tec-fuel-type-label {
+    font-size: 18px;
+  }
 }
 
 /* Responsive - Mobile */
 @media (max-width: 420px) {
   .tec-mobile-hint {
     display: block;
+  }
+
+.tec-fuel-type-label {
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 
   .tec-mobile-hint.tec-hidden {
