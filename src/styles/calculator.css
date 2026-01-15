@@ -594,6 +594,8 @@
   font-size: 13px;
   color: var(--txm);
   margin-top: 14px;
+  margin-bottom: 0px;
+
 }
 
 .tec-cta-phone a {
