@@ -560,6 +560,7 @@
 .tec-cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 14px 32px;
   background: var(--tt);
