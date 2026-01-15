@@ -22,8 +22,8 @@
     "consumptionOptions": {
       "truck": "Camion (32 L/100km)",
       "van": "Furgone (12 L/100km)",
-      "transporter": "Furgone (9 L/100km)",
-      "car": "Auto (7 L/100km)",
+      "transporter": "Trasportatore (9 L/100km)",
+      "car": "Automobile (7 L/100km)",
       "custom": "Altro"
     },
     "consumptionUnit": "L/100km",
