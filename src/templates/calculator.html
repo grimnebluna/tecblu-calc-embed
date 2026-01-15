@@ -53,7 +53,7 @@
         <div class="tec-field">
           <label class="tec-label">
             <span>⛽</span>
-            <span data-i18n="diesel.priceLabel">Treibstoffpreis</span>
+            <span class="tec-tooltip" data-i18n="diesel.priceLabel" data-i18n-tooltip="diesel.priceTooltip">Treibstoffpreis<span class="tec-tooltip-text">Diesel, Benzin, Biodiesel oder HVO</span></span>
             <span data-i18n="diesel.pricePerLiter">pro Liter</span>
           </label>
           <div class="tec-price-wrap">
@@ -64,7 +64,6 @@
             </div>
             <button class="tec-price-btn" onclick="tecAdjustPrice('diesel',0.05)">+</button>
           </div>
-          <p class="tec-hint" data-i18n="diesel.priceHint">Durchschnitt Stand Januar 2026</p>
         </div>
 
         <div class="tec-field">
@@ -143,7 +142,6 @@
             </div>
             <button class="tec-price-btn" onclick="tecAdjustPrice('heating',0.05)">+</button>
           </div>
-          <p class="tec-hint" data-i18n="heating.priceHint">Durchschnitt Stand Januar 2026</p>
         </div>
 
         <button class="tec-advanced-toggle" onclick="tecToggleAdvanced('heating')" data-i18n="heating.advancedToggle" data-i18n-toggle-close="heating.advancedToggleClose">+ Erweiterte Einstellungen</button>
