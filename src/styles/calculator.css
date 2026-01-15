@@ -689,7 +689,8 @@
 /* Responsive - Mobile */
 @media (max-width: 420px) {
   .tec-mobile-hint {
-    display: block;
+    display: none;
+    /* to activate: display:block; */
   }
 
 .tec-fuel-type-label {
