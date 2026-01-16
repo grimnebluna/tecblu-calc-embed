@@ -102,6 +102,38 @@
   }
 }
 
+/* Grid columns */
+.tec-grid-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.tec-grid-col-input .tec-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tec-grid-col-input .tec-card .tec-advanced-toggle {
+  margin-top: auto;
+}
+
+.tec-grid-col-results {
+  display: flex;
+  flex-direction: column;
+}
+
+.tec-results-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tec-results-card .tec-compare:last-of-type {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
 /* Cards */
 .tec-card,
 .tec-results-card {
@@ -543,7 +575,8 @@
   padding: 24px;
   background: linear-gradient(135deg, var(--ttl), #cceef3);
   border-radius: 14px;
-  box-shadow: var(--neuin);
+  box-shadow: 6px 6px 14px 2px #0000001a, -6px -6px 14px 2px #ffffffbf;
+  margin-top: 24px;
 }
 
 .tec-cta-text {

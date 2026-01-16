@@ -10,7 +10,7 @@
   -->
 
   <div class="tec-grid">
-    <div>
+    <div class="tec-grid-col tec-grid-col-input">
       <div class="tec-tabs">
         <div class="tec-tab-wrap">
           <button class="tec-tab-btn active" data-tab="diesel" onclick="tecSwitchTab('diesel')">
@@ -161,7 +161,7 @@
     </div>
 
     <!-- Results Panel -->
-    <div>
+    <div class="tec-grid-col tec-grid-col-results">
       <div class="tec-results-card">
         <div class="tec-fuel-type-label" id="tec-fuel-type-diesel" data-i18n="tabs.fuelTooltip">Diesel, Benzin, Biodiesel oder HVO</div>
         <div class="tec-fuel-type-label tec-hidden" id="tec-fuel-type-heating" data-i18n="tabs.heating">Heizöl</div>
@@ -255,23 +255,24 @@
           </div>
         </div>
 
-        <!-- CTA -->
-        <div class="tec-cta">
-          <p class="tec-cta-text">
-            <span data-i18n="cta.textBefore"></span><span class="tec-cta-savings" id="tec-cta-val">CHF 0.–</span><span data-i18n="cta.textAfter">pro Jahr sparen und gleichzeitig die Umwelt schonen.</span>
-          </p>
-          <a href="/offerte-einholen" class="tec-cta-btn" id="tec-cta-link">
-            <span data-i18n="cta.button">Gratis Offerte einholen</span>
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-          <p class="tec-cta-phone">
-            <span data-i18n="cta.phone">Noch Fragen?</span>
-            <a href="tel:+41438880012" data-i18n="cta.phoneNumber">+41 43 888 00 12</a>
-          </p>
-        </div>
       </div>
     </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="tec-cta">
+    <p class="tec-cta-text">
+      <span data-i18n="cta.textBefore"></span><span class="tec-cta-savings" id="tec-cta-val">CHF 0.–</span><span data-i18n="cta.textAfter">pro Jahr sparen und gleichzeitig die Umwelt schonen.</span>
+    </p>
+    <a href="/offerte-einholen" class="tec-cta-btn" id="tec-cta-link">
+      <span data-i18n="cta.button">Gratis Offerte einholen</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+    <p class="tec-cta-phone">
+      <span data-i18n="cta.phone">Noch Fragen?</span>
+      <a href="tel:+41438880012" data-i18n="cta.phoneNumber">+41 43 888 00 12</a>
+    </p>
   </div>
 </div>
