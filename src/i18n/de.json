@@ -45,7 +45,8 @@
     "priceHint": "Durchschnitt Stand Januar 2026",
     "advancedToggle": "+ Erweiterte Einstellungen",
     "advancedToggleClose": "− Weniger anzeigen",
-    "savingsLabel": "Erwartete Heizöleinsparung"
+    "savingsLabel": "Erwartete Heizöleinsparung",
+    "tecbluCost": "TecBlu®: {price} pro Liter"
   },
   "results": {
     "primaryLabel": "Jährliche Nettoersparnis",

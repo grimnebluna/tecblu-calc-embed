@@ -45,7 +45,8 @@
     "priceHint": "Average as of January 2026",
     "advancedToggle": "+ Advanced Settings",
     "advancedToggleClose": "− Show Less",
-    "savingsLabel": "Expected Heating Oil Savings"
+    "savingsLabel": "Expected Heating Oil Savings",
+    "tecbluCost": "TecBlu®: {price} per Liter"
   },
   "results": {
     "primaryLabel": "Annual Net Savings",

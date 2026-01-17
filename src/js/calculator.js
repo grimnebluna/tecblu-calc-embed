@@ -98,19 +98,26 @@ export function initCalculator(lang = 'de', country = 'CH') {
  * @param {Object} config - Country configuration
  */
 function updateTecbluCostDisplay(config) {
-  const costEl = document.querySelector('[data-i18n="diesel.tecbluCost"]');
-  if (costEl) {
-    const priceFormatted = config.currency === 'EUR'
-      ? `${config.tecCost.toFixed(4).replace('.', ',')} €`
-      : `CHF ${config.tecCost.toFixed(4)}`;
+  const priceFormatted = config.currency === 'EUR'
+    ? `${config.tecCost.toFixed(4).replace('.', ',')} €`
+    : `CHF ${config.tecCost.toFixed(4)}`;
 
-    // Get the wrapper to find translations
-    const wrapper = document.querySelector('.tec-calc-wrapper');
-    const translations = wrapper?._tecTranslations;
+  // Get the wrapper to find translations
+  const wrapper = document.querySelector('.tec-calc-wrapper');
+  const translations = wrapper?._tecTranslations;
 
-    // Use translation template if available, otherwise use German default
+  // Update diesel/fuel TecBlu cost
+  const dieselCostEl = document.querySelector('[data-i18n="diesel.tecbluCost"]');
+  if (dieselCostEl) {
     let template = translations?.diesel?.tecbluCost || 'TecBlu®: {price} pro Liter';
-    costEl.textContent = template.replace('{price}', priceFormatted);
+    dieselCostEl.textContent = template.replace('{price}', priceFormatted);
+  }
+
+  // Update heating TecBlu cost
+  const heatingCostEl = document.querySelector('[data-i18n="heating.tecbluCost"]');
+  if (heatingCostEl) {
+    let template = translations?.heating?.tecbluCost || 'TecBlu®: {price} pro Liter';
+    heatingCostEl.textContent = template.replace('{price}', priceFormatted);
   }
 }
 

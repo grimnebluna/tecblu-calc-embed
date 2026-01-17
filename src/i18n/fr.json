@@ -45,7 +45,8 @@
     "priceHint": "Moyenne en janvier 2026",
     "advancedToggle": "+ Paramètres avancés",
     "advancedToggleClose": "− Moins d'options",
-    "savingsLabel": "Économie de mazout attendue"
+    "savingsLabel": "Économie de mazout attendue",
+    "tecbluCost": "TecBlu®: {price} par litre"
   },
   "results": {
     "primaryLabel": "Économie nette annuelle",

@@ -45,7 +45,8 @@
     "priceHint": "Media a gennaio 2026",
     "advancedToggle": "+ Impostazioni avanzate",
     "advancedToggleClose": "− Mostra meno",
-    "savingsLabel": "Risparmio gasolio previsto"
+    "savingsLabel": "Risparmio gasolio previsto",
+    "tecbluCost": "TecBlu®: {price} per litro"
   },
   "results": {
     "primaryLabel": "Risparmio netto annuale",
