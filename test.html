@@ -99,9 +99,18 @@
     </div>
 
     <div class="current-info">
-      Language: <code id="current-lang">detecting...</code> |
-      Country: <code id="current-country">detecting...</code> |
-      Currency: <code id="current-currency">detecting...</code>
+      <strong>URL Params:</strong> Language: <code id="current-lang">detecting...</code> |
+      Country: <code id="current-country">detecting...</code>
+      <br><br>
+      <strong>Expected Config:</strong> Currency: <code id="current-currency">detecting...</code> |
+      TecBlu Cost: <code id="current-teccost">detecting...</code> |
+      Diesel: <code id="current-diesel">detecting...</code> |
+      Heating: <code id="current-heating">detecting...</code>
+      <br><br>
+      <strong>Actual Widget Values:</strong>
+      Diesel Price Input: <code id="actual-diesel">checking...</code> |
+      Heating Price Input: <code id="actual-heating">checking...</code> |
+      Currency Symbol: <code id="actual-currency">checking...</code>
       <br><br>
       URL: <code id="current-url"></code>
     </div>
@@ -116,11 +125,11 @@
   <script>
     // Country configuration (mirrored from localization.js for display)
     const COUNTRY_CONFIG = {
-      CH: { currency: 'CHF', tecCost: 0.0463 },
-      DE: { currency: 'EUR', tecCost: 0.049 },
-      AT: { currency: 'EUR', tecCost: 0.049 },
-      FR: { currency: 'EUR', tecCost: 0.049 },
-      IT: { currency: 'EUR', tecCost: 0.058 }
+      CH: { currency: 'CHF', tecCost: 0.0463, dieselPrice: 1.95, heatingPrice: 1.35 },
+      DE: { currency: 'EUR', tecCost: 0.049, dieselPrice: 1.60, heatingPrice: 1.30 },
+      AT: { currency: 'EUR', tecCost: 0.049, dieselPrice: 1.60, heatingPrice: 1.30 },
+      FR: { currency: 'EUR', tecCost: 0.049, dieselPrice: 1.60, heatingPrice: 1.30 },
+      IT: { currency: 'EUR', tecCost: 0.058, dieselPrice: 1.60, heatingPrice: 1.30 }
     };
 
     // Display current URL
@@ -133,9 +142,29 @@
       const country = params.get('country') || 'CH';
       const config = COUNTRY_CONFIG[country] || COUNTRY_CONFIG.CH;
 
+      console.log('Test page: URL params - lang:', lang, 'country:', country);
+      console.log('Test page: Expected config:', config);
+
+      // Show URL params
       document.getElementById('current-lang').textContent = lang + (params.get('lang') ? '' : ' (default)');
       document.getElementById('current-country').textContent = country + (params.get('country') ? '' : ' (default)');
+
+      // Show expected config
       document.getElementById('current-currency').textContent = config.currency;
+      document.getElementById('current-teccost').textContent = config.tecCost;
+      document.getElementById('current-diesel').textContent = config.dieselPrice;
+      document.getElementById('current-heating').textContent = config.heatingPrice;
+
+      // Show actual widget values
+      const dieselInput = document.getElementById('tec-diesel-price');
+      const heatingInput = document.getElementById('tec-heating-price');
+      const currencyEl = document.querySelector('.tec-price-currency');
+
+      document.getElementById('actual-diesel').textContent = dieselInput ? dieselInput.value : 'NOT FOUND';
+      document.getElementById('actual-heating').textContent = heatingInput ? heatingInput.value : 'NOT FOUND';
+      document.getElementById('actual-currency').textContent = currencyEl ? currencyEl.textContent : 'NOT FOUND';
+
+      console.log('Test page: Actual widget values - diesel:', dieselInput?.value, 'heating:', heatingInput?.value, 'currency:', currencyEl?.textContent);
 
       // Highlight active language button
       const langButtons = document.querySelectorAll('.switcher-section:first-of-type .lang-btn');
@@ -152,10 +181,11 @@
           btn.classList.add('active');
         }
       });
-    }, 100);
+    }, 200);
 
     // Language switcher (preserves country param)
     function switchLang(lang) {
+      console.log('Switching language to:', lang);
       const url = new URL(window.location.href);
       url.searchParams.set('lang', lang);
       window.location.href = url.toString();
@@ -163,6 +193,7 @@
 
     // Country switcher (preserves lang param)
     function switchCountry(country) {
+      console.log('Switching country to:', country);
       const url = new URL(window.location.href);
       url.searchParams.set('country', country);
       window.location.href = url.toString();

@@ -153,6 +153,7 @@ ${calculatorJS}
     }
 
     const lang = detectLanguage();
+    const country = detectCountry();
     loadFonts();
     injectStyles();
     container.innerHTML = HTML_CONTENT;
@@ -161,7 +162,7 @@ ${calculatorJS}
     const wrapper = container.querySelector('.tec-calc-wrapper');
     if (wrapper) applyTranslations(wrapper, translations);
 
-    initCalculator(lang);
+    initCalculator(lang, country);
     container.dataset.tecbluInit = 'true';
   }
 
@@ -171,7 +172,7 @@ ${calculatorJS}
     init();
   }
 
-  window.TecBluCalc = { init: init, detectLanguage: detectLanguage };
+  window.TecBluCalc = { init: init, detectLanguage: detectLanguage, detectCountry: detectCountry };
 })();
 `;
 

@@ -668,6 +668,7 @@ function calculateHeating() {
     }
 
     const lang = detectLanguage();
+    const country = detectCountry();
     loadFonts();
     injectStyles();
     container.innerHTML = HTML_CONTENT;
@@ -676,7 +677,7 @@ function calculateHeating() {
     const wrapper = container.querySelector('.tec-calc-wrapper');
     if (wrapper) applyTranslations(wrapper, translations);
 
-    initCalculator(lang);
+    initCalculator(lang, country);
     container.dataset.tecbluInit = 'true';
   }
 
@@ -686,5 +687,5 @@ function calculateHeating() {
     init();
   }
 
-  window.TecBluCalc = { init: init, detectLanguage: detectLanguage };
+  window.TecBluCalc = { init: init, detectLanguage: detectLanguage, detectCountry: detectCountry };
 })();
