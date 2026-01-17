@@ -30,7 +30,7 @@
     "advancedToggle": "+ Impostazioni avanzate",
     "advancedToggleClose": "− Mostra meno",
     "savingsLabel": "Risparmio carburante previsto",
-    "tecbluCost": "TecBlu®: CHF 0.0463 per litro"
+    "tecbluCost": "TecBlu®: {price} per litro"
   },
   "heating": {
     "buildingLabel": "Tipo di edificio",
@@ -67,7 +67,6 @@
     "phone": "Domande?",
     "phoneNumber": "+41 43 888 00 12"
   },
-  "currency": "CHF",
   "units": {
     "liters": "L",
     "tons": "t",

@@ -14,6 +14,40 @@ const URL_PATTERNS = {
 // Supported languages
 const SUPPORTED_LANGS = ['de', 'en', 'fr', 'it'];
 
+// Country configuration
+export const COUNTRY_CONFIG = {
+  CH: { currency: 'CHF', tecCost: 0.0463, dieselPrice: 1.95, heatingPrice: 1.35, locale: 'de-CH' },
+  DE: { currency: 'EUR', tecCost: 0.049,  dieselPrice: 1.60, heatingPrice: 1.30, locale: 'de-DE' },
+  AT: { currency: 'EUR', tecCost: 0.049,  dieselPrice: 1.60, heatingPrice: 1.30, locale: 'de-AT' },
+  FR: { currency: 'EUR', tecCost: 0.049,  dieselPrice: 1.60, heatingPrice: 1.30, locale: 'fr-FR' },
+  IT: { currency: 'EUR', tecCost: 0.058,  dieselPrice: 1.60, heatingPrice: 1.30, locale: 'it-IT' }
+};
+
+/**
+ * Detect country based on:
+ * 1. URL parameter (?country=XX) - for testing
+ * 2. Hostname pattern matching
+ * 3. Fallback to Switzerland (CH)
+ */
+export function detectCountry() {
+  // 1. Check URL parameter first (useful for testing)
+  const urlParams = new URLSearchParams(window.location.search);
+  const countryParam = urlParams.get('country');
+  if (countryParam && COUNTRY_CONFIG[countryParam.toUpperCase()]) {
+    return countryParam.toUpperCase();
+  }
+
+  // 2. Check hostname patterns
+  const hostname = window.location.hostname;
+  if (hostname.includes('tecblu.de')) return 'DE';
+  if (hostname.includes('tecblu.at')) return 'AT';
+  if (hostname.includes('tecblu.fr')) return 'FR';
+  if (hostname.includes('tecblu.it')) return 'IT';
+
+  // 3. Default to Switzerland
+  return 'CH';
+}
+
 /**
  * Detect language based on:
  * 1. URL parameter (?lang=xx) - for testing
@@ -113,20 +147,23 @@ export function applyTranslations(container, translations) {
  * @returns {string} Formatted currency string
  */
 export function formatCurrency(value, currency = 'CHF', lang = 'de') {
-  const localeMap = {
-    de: 'de-CH',
-    en: 'en-CH',
-    fr: 'fr-CH',
-    it: 'it-CH'
-  };
+  const rounded = Math.round(Math.min(value, 999999999999));
 
-  const locale = localeMap[lang] || 'de-CH';
-  const formatted = new Intl.NumberFormat(locale, {
+  if (currency === 'EUR') {
+    // European format: 1.234,00 €
+    const formatted = new Intl.NumberFormat('de-DE', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(rounded);
+    return `${formatted} €`;
+  }
+
+  // CHF format: CHF 1'234.–
+  const formatted = new Intl.NumberFormat('de-CH', {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
-  }).format(Math.round(Math.min(value, 999999999999)));
-
-  return `${currency} ${formatted}.–`;
+  }).format(rounded);
+  return `CHF ${formatted}.–`;
 }
 
 /**

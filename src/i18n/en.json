@@ -30,7 +30,7 @@
     "advancedToggle": "+ Advanced Settings",
     "advancedToggleClose": "− Show Less",
     "savingsLabel": "Expected Fuel Savings",
-    "tecbluCost": "TecBlu®: CHF 0.0463 per Liter"
+    "tecbluCost": "TecBlu®: {price} per Liter"
   },
   "heating": {
     "buildingLabel": "Building Type",
@@ -67,7 +67,6 @@
     "phone": "Questions?",
     "phoneNumber": "+41 43 888 00 12"
   },
-  "currency": "CHF",
   "units": {
     "liters": "L",
     "tons": "t",

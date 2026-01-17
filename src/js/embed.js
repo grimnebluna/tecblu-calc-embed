@@ -3,7 +3,7 @@
  * This file is the entry point for the bundled embed script
  */
 
-import { detectLanguage, applyTranslations } from './localization.js';
+import { detectLanguage, detectCountry, applyTranslations } from './localization.js';
 import { initCalculator } from './calculator.js';
 
 // These will be replaced by the build script with actual content
@@ -31,8 +31,9 @@ function init() {
     return;
   }
 
-  // Detect language
+  // Detect language and country
   const lang = detectLanguage();
+  const country = detectCountry();
 
   // Load Google Fonts
   loadFonts();
@@ -52,8 +53,8 @@ function init() {
     applyTranslations(wrapper, translations);
   }
 
-  // Initialize calculator logic
-  initCalculator(lang);
+  // Initialize calculator logic with language and country
+  initCalculator(lang, country);
 
   // Mark as initialized
   container.dataset.tecbluInit = 'true';
@@ -112,5 +113,6 @@ if (document.readyState === 'loading') {
 // Export for manual initialization if needed
 window.TecBluCalc = {
   init,
-  detectLanguage
+  detectLanguage,
+  detectCountry
 };

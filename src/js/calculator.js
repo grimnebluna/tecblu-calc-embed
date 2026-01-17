@@ -2,10 +2,9 @@
  * TecBlu Calculator - Core Calculation Logic
  */
 
-import { formatCurrency, formatNumber } from './localization.js';
+import { formatCurrency, formatNumber, COUNTRY_CONFIG } from './localization.js';
 
 // Constants
-const TEC_COST = 0.0463;
 const CO2_LITER = 2.65;
 const MAX_OUT = 999999999999;
 
@@ -30,6 +29,9 @@ const LIMITS = {
 let currentTab = 'diesel';
 let vehicles = 5;
 let currentLang = 'de';
+let currentCountry = 'CH';
+let currentCurrency = 'CHF';
+let currentTecCost = 0.0463;
 
 // DOM helpers
 const $ = id => document.getElementById(id);
@@ -39,9 +41,31 @@ const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 /**
  * Initialize the calculator
  * @param {string} lang - Language code
+ * @param {string} country - Country code (CH, DE, AT, FR, IT)
  */
-export function initCalculator(lang = 'de') {
+export function initCalculator(lang = 'de', country = 'CH') {
   currentLang = lang;
+  currentCountry = country;
+
+  // Apply country-specific configuration
+  const config = COUNTRY_CONFIG[country] || COUNTRY_CONFIG.CH;
+  currentCurrency = config.currency;
+  currentTecCost = config.tecCost;
+
+  // Set country-specific default prices
+  const dieselPriceEl = $('tec-diesel-price');
+  const heatingPriceEl = $('tec-heating-price');
+  if (dieselPriceEl) dieselPriceEl.value = config.dieselPrice.toFixed(2);
+  if (heatingPriceEl) heatingPriceEl.value = config.heatingPrice.toFixed(2);
+
+  // Update currency display in price inputs
+  const currencyEls = document.querySelectorAll('.tec-price-currency');
+  currencyEls.forEach(el => {
+    el.textContent = config.currency === 'EUR' ? '€' : 'CHF';
+  });
+
+  // Update TecBlu cost display
+  updateTecbluCostDisplay(config);
 
   // Bind all functions to window for onclick handlers
   window.tecSwitchTab = switchTab;
@@ -67,6 +91,27 @@ export function initCalculator(lang = 'de') {
 
   // Initial calculation
   calculate();
+}
+
+/**
+ * Update TecBlu cost display with country-specific value
+ * @param {Object} config - Country configuration
+ */
+function updateTecbluCostDisplay(config) {
+  const costEl = document.querySelector('[data-i18n="diesel.tecbluCost"]');
+  if (costEl) {
+    const priceFormatted = config.currency === 'EUR'
+      ? `${config.tecCost.toFixed(4).replace('.', ',')} €`
+      : `CHF ${config.tecCost.toFixed(4)}`;
+
+    // Get the wrapper to find translations
+    const wrapper = document.querySelector('.tec-calc-wrapper');
+    const translations = wrapper?._tecTranslations;
+
+    // Use translation template if available, otherwise use German default
+    let template = translations?.diesel?.tecbluCost || 'TecBlu®: {price} pro Liter';
+    costEl.textContent = template.replace('{price}', priceFormatted);
+  }
 }
 
 /**
@@ -304,8 +349,9 @@ function calculate() {
  * Calculate diesel/fuel savings
  */
 function calculateDiesel() {
+  const config = COUNTRY_CONFIG[currentCountry] || COUNTRY_CONFIG.CH;
   const km = clamp(parseFloat($('tec-km-input').value) || 80000, LIMITS.km[0], LIMITS.km[1]);
-  const price = clamp(parseFloat($('tec-diesel-price').value) || 1.95, LIMITS.price[0], LIMITS.price[1]);
+  const price = clamp(parseFloat($('tec-diesel-price').value) || config.dieselPrice, LIMITS.price[0], LIMITS.price[1]);
   const consType = $('tec-consumption').value;
 
   let cons = consType === 'custom'
@@ -320,7 +366,7 @@ function calculateDiesel() {
   const totalLiters = litersPerVehicle * vehicles;
   const litersSaved = totalLiters * (savePct / 100);
   const gross = litersSaved * price;
-  const tecCost = totalLiters * TEC_COST;
+  const tecCost = totalLiters * currentTecCost;
   const net = Math.max(0, gross - tecCost);
   const co2 = litersSaved * (CO2_LITER / 1000);
   const perVehicle = Math.max(0, net / vehicles);
@@ -328,15 +374,15 @@ function calculateDiesel() {
   const costWith = costWithout - net;
 
   // Update UI
-  $('tec-primary-result').textContent = formatCurrency(net, 'CHF', currentLang);
+  $('tec-primary-result').textContent = formatCurrency(net, currentCurrency, currentLang);
   $('tec-r-diesel').textContent = formatNumber(litersSaved, 0, currentLang) + ' L';
   $('tec-r-co2').textContent = formatNumber(co2, 1, currentLang) + ' t';
-  $('tec-r-vehicle').textContent = formatCurrency(perVehicle, 'CHF', currentLang);
-  $('tec-r-invest').textContent = formatCurrency(tecCost, 'CHF', currentLang);
-  $('tec-c-without').textContent = formatCurrency(costWithout, 'CHF', currentLang);
-  $('tec-c-with').textContent = formatCurrency(costWith, 'CHF', currentLang);
+  $('tec-r-vehicle').textContent = formatCurrency(perVehicle, currentCurrency, currentLang);
+  $('tec-r-invest').textContent = formatCurrency(tecCost, currentCurrency, currentLang);
+  $('tec-c-without').textContent = formatCurrency(costWithout, currentCurrency, currentLang);
+  $('tec-c-with').textContent = formatCurrency(costWith, currentCurrency, currentLang);
   $('tec-bar-with').style.width = (costWithout > 0 ? (costWith / costWithout) * 100 : 100) + '%';
-  $('tec-cta-val').textContent = formatCurrency(net, 'CHF', currentLang);
+  $('tec-cta-val').textContent = formatCurrency(net, currentCurrency, currentLang);
   $('tec-cta-link').href = '/offerte-einholen?type=diesel&savings=' + Math.round(net) + '&liters=' + Math.round(totalLiters);
 }
 
@@ -344,28 +390,29 @@ function calculateDiesel() {
  * Calculate heating oil savings
  */
 function calculateHeating() {
+  const config = COUNTRY_CONFIG[currentCountry] || COUNTRY_CONFIG.CH;
   const liters = clamp(parseFloat($('tec-heating-input').value) || 8000, LIMITS.heating[0], LIMITS.heating[1]);
-  const price = clamp(parseFloat($('tec-heating-price').value) || 1.35, LIMITS.price[0], LIMITS.price[1]);
+  const price = clamp(parseFloat($('tec-heating-price').value) || config.heatingPrice, LIMITS.price[0], LIMITS.price[1]);
   const savePct = clamp(parseFloat($('tec-heating-savings-slider').value) || 7, LIMITS.savings[0], LIMITS.savings[1]);
 
   // Calculations
   const litersSaved = liters * (savePct / 100);
   const gross = litersSaved * price;
-  const tecCost = liters * TEC_COST;
+  const tecCost = liters * currentTecCost;
   const net = Math.max(0, gross - tecCost);
   const co2 = litersSaved * (CO2_LITER / 1000);
   const costWithout = liters * price;
   const costWith = costWithout - net;
 
   // Update UI
-  $('tec-primary-result').textContent = formatCurrency(net, 'CHF', currentLang);
+  $('tec-primary-result').textContent = formatCurrency(net, currentCurrency, currentLang);
   $('tec-rh-oil').textContent = formatNumber(litersSaved, 0, currentLang) + ' L';
   $('tec-rh-co2').textContent = formatNumber(co2, 2, currentLang) + ' t';
-  $('tec-rh-invest').textContent = formatCurrency(tecCost, 'CHF', currentLang);
-  $('tec-ch-without').textContent = formatCurrency(costWithout, 'CHF', currentLang);
-  $('tec-ch-with').textContent = formatCurrency(costWith, 'CHF', currentLang);
+  $('tec-rh-invest').textContent = formatCurrency(tecCost, currentCurrency, currentLang);
+  $('tec-ch-without').textContent = formatCurrency(costWithout, currentCurrency, currentLang);
+  $('tec-ch-with').textContent = formatCurrency(costWith, currentCurrency, currentLang);
   $('tec-bar-h-with').style.width = (costWithout > 0 ? (costWith / costWithout) * 100 : 100) + '%';
-  $('tec-cta-val').textContent = formatCurrency(net, 'CHF', currentLang);
+  $('tec-cta-val').textContent = formatCurrency(net, currentCurrency, currentLang);
   $('tec-cta-link').href = '/offerte-einholen?type=heating&savings=' + Math.round(net) + '&liters=' + Math.round(liters);
 }
 
