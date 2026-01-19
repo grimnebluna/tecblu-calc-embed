@@ -30,7 +30,7 @@
     "advancedToggle": "+ Paramètres avancés",
     "advancedToggleClose": "− Moins d'options",
     "savingsLabel": "Économie de carburant attendue",
-    "tecbluCost": "TecBlu®: {price} par litre"
+    "tecbluCost": "TecBlu: {price} par litre"
   },
   "heating": {
     "buildingLabel": "Type de bâtiment",
@@ -46,7 +46,7 @@
     "advancedToggle": "+ Paramètres avancés",
     "advancedToggleClose": "− Moins d'options",
     "savingsLabel": "Économie de mazout attendue",
-    "tecbluCost": "TecBlu®: {price} par litre"
+    "tecbluCost": "TecBlu: {price} par litre"
   },
   "results": {
     "primaryLabel": "Économie nette annuelle",

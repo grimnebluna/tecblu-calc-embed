@@ -109,14 +109,14 @@ function updateTecbluCostDisplay(config) {
   // Update diesel/fuel TecBlu cost
   const dieselCostEl = document.querySelector('[data-i18n="diesel.tecbluCost"]');
   if (dieselCostEl) {
-    let template = translations?.diesel?.tecbluCost || 'TecBlu®: {price} pro Liter';
+    let template = translations?.diesel?.tecbluCost || 'TecBlu: {price} pro Liter';
     dieselCostEl.textContent = template.replace('{price}', priceFormatted);
   }
 
   // Update heating TecBlu cost
   const heatingCostEl = document.querySelector('[data-i18n="heating.tecbluCost"]');
   if (heatingCostEl) {
-    let template = translations?.heating?.tecbluCost || 'TecBlu®: {price} pro Liter';
+    let template = translations?.heating?.tecbluCost || 'TecBlu: {price} pro Liter';
     heatingCostEl.textContent = template.replace('{price}', priceFormatted);
   }
 }

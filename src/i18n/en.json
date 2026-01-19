@@ -30,7 +30,7 @@
     "advancedToggle": "+ Advanced Settings",
     "advancedToggleClose": "− Show Less",
     "savingsLabel": "Expected Fuel Savings",
-    "tecbluCost": "TecBlu®: {price} per Liter"
+    "tecbluCost": "TecBlu: {price} per Liter"
   },
   "heating": {
     "buildingLabel": "Building Type",
@@ -46,7 +46,7 @@
     "advancedToggle": "+ Advanced Settings",
     "advancedToggleClose": "− Show Less",
     "savingsLabel": "Expected Heating Oil Savings",
-    "tecbluCost": "TecBlu®: {price} per Liter"
+    "tecbluCost": "TecBlu: {price} per Liter"
   },
   "results": {
     "primaryLabel": "Annual Net Savings",
