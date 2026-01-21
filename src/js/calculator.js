@@ -2,7 +2,7 @@
  * TecBlu Calculator - Core Calculation Logic
  */
 
-import { formatCurrency, formatNumber, COUNTRY_CONFIG } from './localization.js';
+import { formatCurrency, formatNumber, COUNTRY_CONFIG, getQuoteUrl } from './localization.js';
 
 // Constants
 const CO2_LITER = 2.65;
@@ -32,6 +32,7 @@ let currentLang = 'de';
 let currentCountry = 'CH';
 let currentCurrency = 'CHF';
 let currentTecCost = 0.0463;
+let currentQuoteUrl = '/offerte-einholen';
 
 // DOM helpers
 const $ = id => document.getElementById(id);
@@ -42,8 +43,9 @@ const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
  * Initialize the calculator
  * @param {string} lang - Language code
  * @param {string} country - Country code (CH, DE, AT, FR, IT)
+ * @param {Object} allTranslations - All translations {de: {...}, en: {...}, fr: {...}, it: {...}}
  */
-export function initCalculator(lang = 'de', country = 'CH') {
+export function initCalculator(lang = 'de', country = 'CH', allTranslations = null) {
   currentLang = lang;
   currentCountry = country;
 
@@ -66,6 +68,9 @@ export function initCalculator(lang = 'de', country = 'CH') {
 
   // Update TecBlu cost display
   updateTecbluCostDisplay(config);
+
+  // Get quote URL based on hostname
+  currentQuoteUrl = getQuoteUrl(allTranslations);
 
   // Bind all functions to window for onclick handlers
   window.tecSwitchTab = switchTab;
@@ -390,7 +395,7 @@ function calculateDiesel() {
   $('tec-c-with').textContent = formatCurrency(costWith, currentCurrency, currentLang);
   $('tec-bar-with').style.width = (costWithout > 0 ? (costWith / costWithout) * 100 : 100) + '%';
   $('tec-cta-val').textContent = formatCurrency(net, currentCurrency, currentLang);
-  $('tec-cta-link').href = '/offerte-einholen?type=diesel&savings=' + Math.round(net) + '&liters=' + Math.round(totalLiters);
+  $('tec-cta-link').href = currentQuoteUrl + '?type=diesel&savings=' + Math.round(net) + '&liters=' + Math.round(totalLiters);
 }
 
 /**
@@ -420,7 +425,7 @@ function calculateHeating() {
   $('tec-ch-with').textContent = formatCurrency(costWith, currentCurrency, currentLang);
   $('tec-bar-h-with').style.width = (costWithout > 0 ? (costWith / costWithout) * 100 : 100) + '%';
   $('tec-cta-val').textContent = formatCurrency(net, currentCurrency, currentLang);
-  $('tec-cta-link').href = '/offerte-einholen?type=heating&savings=' + Math.round(net) + '&liters=' + Math.round(liters);
+  $('tec-cta-link').href = currentQuoteUrl + '?type=heating&savings=' + Math.round(net) + '&liters=' + Math.round(liters);
 }
 
 export { calculate, LIMITS, BUILDING_PRESETS };

@@ -162,7 +162,7 @@ ${calculatorJS}
     const wrapper = container.querySelector('.tec-calc-wrapper');
     if (wrapper) applyTranslations(wrapper, translations);
 
-    initCalculator(lang, country);
+    initCalculator(lang, country, TRANSLATIONS);
     container.dataset.tecbluInit = 'true';
   }
 

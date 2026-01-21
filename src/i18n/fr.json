@@ -66,7 +66,8 @@
     "textAfter": " par an tout en préservant l'environnement.",
     "button": "Obtenez un devis gratuit",
     "phone": "Des questions?",
-    "phoneNumber": "+41 43 888 00 12"
+    "phoneNumber": "+41 43 888 00 12",
+    "quoteUrl": "/demande-de-devis"
   },
   "units": {
     "liters": "L",

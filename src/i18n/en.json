@@ -66,7 +66,8 @@
     "textAfter": " per year while protecting the environment.",
     "button": "Get a Free Quote",
     "phone": "Questions?",
-    "phoneNumber": "+41 43 888 00 12"
+    "phoneNumber": "+41 43 888 00 12",
+    "quoteUrl": "/get-a-quote"
   },
   "units": {
     "liters": "L",

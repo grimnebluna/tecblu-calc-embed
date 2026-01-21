@@ -49,6 +49,33 @@ export function detectCountry() {
 }
 
 /**
+ * Get quote URL based on hostname
+ * @param {Object} translations - All translations object {de: {...}, en: {...}, fr: {...}, it: {...}}
+ */
+export function getQuoteUrl(translations) {
+  const hostname = window.location.hostname;
+
+  // English subdomains get English URL
+  if (hostname === 'en.tecblu.de' || hostname === 'en.tecblu.fr' ||
+      hostname === 'en.tecblu.it' || hostname === 'en.tecblu.at') {
+    return translations?.en?.cta?.quoteUrl || '/get-a-quote';
+  }
+
+  // French domain gets French URL
+  if (hostname === 'tecblu.fr') {
+    return translations?.fr?.cta?.quoteUrl || '/demande-de-devis';
+  }
+
+  // Italian domain gets Italian URL
+  if (hostname === 'tecblu.it') {
+    return translations?.it?.cta?.quoteUrl || '/richiedi-preventivo';
+  }
+
+  // Default: German URL (tecblu.ch, tecblu.de, tecblu.at, and all Swiss subdomains)
+  return translations?.de?.cta?.quoteUrl || '/offerte-einholen';
+}
+
+/**
  * Detect language based on:
  * 1. URL parameter (?lang=xx) - for testing
  * 2. Hostname pattern matching
